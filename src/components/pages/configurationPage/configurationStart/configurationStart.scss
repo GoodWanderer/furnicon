@@ -1,0 +1,94 @@
+.configuration-start {
+  /* .configuration-start__content */
+  &__content {}
+  /* .configuration-start__title */
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #212121;
+    margin: 50px 0 0;
+  }
+  /* .configuration-start__list */
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0 0;
+  }
+  /* .configuration-start__item */
+  &__item {
+    cursor: pointer;
+    &.active {
+      .configuration-start__img {
+        border: 1px solid #689A56;
+        &::after {
+          content: url('./../../../../resources/img/configurationStart/on.svg');
+          position: absolute;
+          top: -12px;
+          right: -12px;
+          width: 24px;
+          height: 24px;
+          padding: 4px 7px;
+          background: #689A56;
+          border-radius: 50%;
+          z-index: 1;
+        }
+      }
+      .configuration-start__name {
+        color: #689A56 !important;
+      }
+    }
+  }
+  /* .configuration-start__img */
+  &__img {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #F7F7F7;
+    background: #F7F7F7;
+    &.configuration-start-center_img {
+      img {
+        padding: 75px 40px;
+      }
+    }
+    img {
+      display: block;
+      padding: 40px;
+      margin: 0 auto;
+    }
+  }
+  /* .configuration-start__name */
+  &__name {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #212121;
+    margin: 15px 0 0;
+  }
+  /* .configuration-start__size */
+  &__size {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 0;
+  }
+  /* .configuration-start__input */
+  &__input {
+    width: 300px;
+    height: 47px;
+    padding: 14px 20px 14px 26px;
+    border: 1px dashed rgba(0, 0, 0, 0);
+    background: #F7F7F7;
+    input {
+      width: 100%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      background: #F7F7F7;
+    }
+  }
+}
+
+.size-error {
+  border: 1px dashed red;
+}

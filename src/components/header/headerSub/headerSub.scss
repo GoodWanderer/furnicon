@@ -1,0 +1,38 @@
+.header-sub {
+  position: relative;
+  height: 47px;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background-color: #689A56;
+    z-index: -1;
+  } 
+  /* .header-sub__row */
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+  /* .header-sub__item */
+  &__item {}
+  /* .header-sub__link */
+  &__link {
+    display: flex;
+    align-items: center;
+    img {
+      width: 16px;
+      height: 16px;
+    }
+    span {
+      font-family: 'SFProMedium';
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 47px;
+      color: #fff;
+      margin: 0 0 0 5px;
+    }
+  }
+}

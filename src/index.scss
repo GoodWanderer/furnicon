@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap&subset=cyrillic-ext');
+
+@font-face {
+  font-family: 'SFProMedium';
+  src: url('./resources/fonts/SFProDisplay-Medium.eot');
+  src: url('./resources/fonts/SFProDisplay-Medium.eot') format('embedded-opentype'),
+  url('./resources/fonts/SFProDisplay-Medium.ttf') format('truetype'),
+  url('./resources/fonts/SFProDisplay-Medium.woff') format('woff'),
+  url('./resources/fonts/SFProDisplay-Medium.svg') format('svg');
+  font-weight: 500; font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProSemibold';
+  src: url('./resources/fonts/SFProDisplay-Semibold.eot');
+  src: url('./resources/fonts/SFProDisplay-Semibold.eot') format('embedded-opentype'),
+  url('./resources/fonts/SFProDisplay-Semibold.ttf') format('truetype'),
+  url('./resources/fonts/SFProDisplay-Semibold.woff') format('woff'),
+  url('./resources/fonts/SFProDisplay-Semibold.svg') format('svg');
+  font-weight: 600; font-style: normal;
+}
+
+
+//===================================================================================================================================
+ 
+$fontFamily: "Inter";
+
+$minWidth: 320px;
+$maxWidthContainer: 1264px;
+$md1: 1670;
+$md2: 1438;
+$md3: 1024;
+$md4: 768;
+$md5: 360;
+
+// * all =============================================================================================================================
+
+body {
+	color: #212121;;
+	font-size: 14px;
+	background-color: #fff;
+}
+
+._container {
+	max-width: $maxWidthContainer;
+	width: 100%;
+	margin: 0 auto;
+
+	// @media (max-width: $md1+px) {
+	// 	max-width: 1350px;
+	// }
+
+	// @media (max-width: $md2+px) {
+	// 	max-width: 1050px
+	// }
+
+	// @media (max-width: $md3+px) {
+	// 	max-width: 750px;
+	// }
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.header {
+	overflow: hidden;
+}
+
+.page {
+	position: relative;
+	flex: 1 0 auto;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+// * null ============================================================================================================================
+ 
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+	display: block;
+}
+html,
+body {
+	height: 100%;
+	min-width: $minWidth;
+}
+body {
+	line-height: 1;
+	font-family: $fontFamily;
+	//text-rendering: optimizeLegibility;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+	font-family: $fontFamily;
+}
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+//-webkit-overflow-scrolling: touch;
+//animation-play-state: paused !important;
+
+// * ui ==============================================================================================================================
+  
+.btn {
+	padding: 8px 20px;
+	background: #F4F4F4;
+	border-radius: 5px;
+}
