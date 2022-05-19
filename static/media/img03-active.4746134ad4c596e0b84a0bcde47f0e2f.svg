@@ -1,6 +1,6 @@
 <svg width="95" height="164" viewBox="0 0 95 164" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="94" height="142" transform="translate(0 21)" fill="none"/>
-<rect width="94" height="142" transform="translate(0 21)" fill="none"/>
+<rect width="94" height="142" transform="translate(0 21)" fill="white"/>
+<rect width="94" height="142" transform="translate(0 21)" fill="white"/>
 <path d="M0 21H0.502674M0.502674 21H94V163H0.502674V21Z" stroke="#1B99CE"/>
 <path d="M0 27H94" stroke="#1B99CE"/>
 <path d="M0 149H94" stroke="#1B99CE"/>

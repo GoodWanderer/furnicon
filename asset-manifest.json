@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/KworkFurnicom-1/static/css/main.d3464070.css",
-    "main.js": "/KworkFurnicom-1/static/js/main.b9620258.js",
+    "main.css": "/KworkFurnicom-1/static/css/main.ffeff834.css",
+    "main.js": "/KworkFurnicom-1/static/js/main.2b416ae4.js",
     "static/media/SFProDisplay-Semibold.svg": "/KworkFurnicom-1/static/media/SFProDisplay-Semibold.6d5464cbd9804e1a644a.svg",
     "static/media/SFProDisplay-Medium.svg": "/KworkFurnicom-1/static/media/SFProDisplay-Medium.9a26726125e7a92260bd.svg",
     "static/media/SFProDisplay-Semibold.eot": "/KworkFurnicom-1/static/media/SFProDisplay-Semibold.f6a928a0c125d1490581.eot",
@@ -14,8 +14,8 @@
     "static/media/img04-active.svg": "/KworkFurnicom-1/static/media/img04-active.685093b1da4ae1f6186bf5e6149b58f5.svg",
     "static/media/img04.svg": "/KworkFurnicom-1/static/media/img04.a215aa85af5092eca82c12f6cc35d9d8.svg",
     "static/media/img05.svg": "/KworkFurnicom-1/static/media/img05.5ee51a1f317ba31ede886908516dac7e.svg",
+    "static/media/img03-active.svg": "/KworkFurnicom-1/static/media/img03-active.4746134ad4c596e0b84a0bcde47f0e2f.svg",
     "static/media/img03.svg": "/KworkFurnicom-1/static/media/img03.08bb02ab6c9f14aa738d05a8b14bf09e.svg",
-    "static/media/img03-active.svg": "/KworkFurnicom-1/static/media/img03-active.e8596cd785bc537302797844b7ad56d6.svg",
     "static/media/equal.svg": "/KworkFurnicom-1/static/media/equal.b96386d1cfe600103f542a265f9dce0e.svg",
     "static/media/arrow.svg": "/KworkFurnicom-1/static/media/arrow.8c27abfabc1233c619952d1f66ce932c.svg",
     "static/media/profile.svg": "/KworkFurnicom-1/static/media/profile.3893dec06509a0368c69342a2435ba45.svg",
@@ -30,11 +30,11 @@
     "static/media/img08.svg": "/KworkFurnicom-1/static/media/img08.e6a7c0f693602be2a21762ab13537823.svg",
     "static/media/on.svg": "/KworkFurnicom-1/static/media/on.bb212af0352d3cf85820584d4469237b.svg",
     "static/media/add.svg": "/KworkFurnicom-1/static/media/add.10055a47a14126548263fa816f104766.svg",
-    "main.d3464070.css.map": "/KworkFurnicom-1/static/css/main.d3464070.css.map",
-    "main.b9620258.js.map": "/KworkFurnicom-1/static/js/main.b9620258.js.map"
+    "main.ffeff834.css.map": "/KworkFurnicom-1/static/css/main.ffeff834.css.map",
+    "main.2b416ae4.js.map": "/KworkFurnicom-1/static/js/main.2b416ae4.js.map"
   },
   "entrypoints": [
-    "static/css/main.d3464070.css",
-    "static/js/main.b9620258.js"
+    "static/css/main.ffeff834.css",
+    "static/js/main.2b416ae4.js"
   ]
 }
