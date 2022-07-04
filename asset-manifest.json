@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/KworkFurnicom-1/static/css/main.0395f90f.css",
-    "main.js": "/KworkFurnicom-1/static/js/main.45fa7032.js",
+    "main.css": "/KworkFurnicom-1/static/css/main.9454341c.css",
+    "main.js": "/KworkFurnicom-1/static/js/main.cb7c8fc5.js",
     "static/media/SFProDisplay-Semibold.svg": "/KworkFurnicom-1/static/media/SFProDisplay-Semibold.6d5464cbd9804e1a644a.svg",
     "static/media/SFProDisplay-Medium.svg": "/KworkFurnicom-1/static/media/SFProDisplay-Medium.9a26726125e7a92260bd.svg",
     "static/media/SFProDisplay-Semibold.eot": "/KworkFurnicom-1/static/media/SFProDisplay-Semibold.f6a928a0c125d1490581.eot",
@@ -13,6 +13,7 @@
     "static/media/bg.svg": "/KworkFurnicom-1/static/media/bg.7298e1e8abeef8cf512f.svg",
     "static/media/img05-active.svg": "/KworkFurnicom-1/static/media/img05-active.d70298bb49e240e701c9afffff2845d2.svg",
     "static/media/img05.svg": "/KworkFurnicom-1/static/media/img05.5ee51a1f317ba31ede886908516dac7e.svg",
+    "static/media/profile.svg": "/KworkFurnicom-1/static/media/profile.67f137fd5dc188513735eb90a20c5709.svg",
     "static/media/img04-active.svg": "/KworkFurnicom-1/static/media/img04-active.f5c36d8ecc9416e38d8aebd2492b61fb.svg",
     "static/media/img04.svg": "/KworkFurnicom-1/static/media/img04.a215aa85af5092eca82c12f6cc35d9d8.svg",
     "static/media/img03-active.svg": "/KworkFurnicom-1/static/media/img03-active.11dcb797771e10c634ef202ec8473ef0.svg",
@@ -24,7 +25,6 @@
     "static/media/details.svg": "/KworkFurnicom-1/static/media/details.b769950d76722f5c8a52502adc78ad4f.svg",
     "static/media/img022-active.svg": "/KworkFurnicom-1/static/media/img022-active.e8f715ad725215b6f7a78bd8c8ea7a3e.svg",
     "static/media/img022.svg": "/KworkFurnicom-1/static/media/img022.1741e41130f2e95375a2e2e0f094c929.svg",
-    "static/media/profile.svg": "/KworkFurnicom-1/static/media/profile.3893dec06509a0368c69342a2435ba45.svg",
     "index.html": "/KworkFurnicom-1/index.html",
     "static/media/img08-active.svg": "/KworkFurnicom-1/static/media/img08-active.b546d846c095371dc32ae2c83a39959c.svg",
     "static/media/img08.svg": "/KworkFurnicom-1/static/media/img08.e6a7c0f693602be2a21762ab13537823.svg",
@@ -39,12 +39,13 @@
     "static/media/img01-active.svg": "/KworkFurnicom-1/static/media/img01-active.dadb31d3b15842fb19a467812e9186e1.svg",
     "static/media/on.svg": "/KworkFurnicom-1/static/media/on.bb212af0352d3cf85820584d4469237b.svg",
     "static/media/add.svg": "/KworkFurnicom-1/static/media/add.10055a47a14126548263fa816f104766.svg",
+    "static/media/arrow-rigth.svg": "/KworkFurnicom-1/static/media/arrow-rigth.7a5553c62b92d5fdc892aefad7fbddcd.svg",
     "static/media/select.svg": "/KworkFurnicom-1/static/media/select.baa965654ee8ce3d8fd3018cb62f9b91.svg",
-    "main.0395f90f.css.map": "/KworkFurnicom-1/static/css/main.0395f90f.css.map",
-    "main.45fa7032.js.map": "/KworkFurnicom-1/static/js/main.45fa7032.js.map"
+    "main.9454341c.css.map": "/KworkFurnicom-1/static/css/main.9454341c.css.map",
+    "main.cb7c8fc5.js.map": "/KworkFurnicom-1/static/js/main.cb7c8fc5.js.map"
   },
   "entrypoints": [
-    "static/css/main.0395f90f.css",
-    "static/js/main.45fa7032.js"
+    "static/css/main.9454341c.css",
+    "static/js/main.cb7c8fc5.js"
   ]
 }
