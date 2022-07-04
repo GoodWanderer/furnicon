@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/KworkFurnicom-1/static/css/main.9454341c.css",
-    "main.js": "/KworkFurnicom-1/static/js/main.cb7c8fc5.js",
+    "main.js": "/KworkFurnicom-1/static/js/main.60331db7.js",
     "static/media/SFProDisplay-Semibold.svg": "/KworkFurnicom-1/static/media/SFProDisplay-Semibold.6d5464cbd9804e1a644a.svg",
     "static/media/SFProDisplay-Medium.svg": "/KworkFurnicom-1/static/media/SFProDisplay-Medium.9a26726125e7a92260bd.svg",
     "static/media/SFProDisplay-Semibold.eot": "/KworkFurnicom-1/static/media/SFProDisplay-Semibold.f6a928a0c125d1490581.eot",
@@ -42,10 +42,10 @@
     "static/media/arrow-rigth.svg": "/KworkFurnicom-1/static/media/arrow-rigth.7a5553c62b92d5fdc892aefad7fbddcd.svg",
     "static/media/select.svg": "/KworkFurnicom-1/static/media/select.baa965654ee8ce3d8fd3018cb62f9b91.svg",
     "main.9454341c.css.map": "/KworkFurnicom-1/static/css/main.9454341c.css.map",
-    "main.cb7c8fc5.js.map": "/KworkFurnicom-1/static/js/main.cb7c8fc5.js.map"
+    "main.60331db7.js.map": "/KworkFurnicom-1/static/js/main.60331db7.js.map"
   },
   "entrypoints": [
     "static/css/main.9454341c.css",
-    "static/js/main.cb7c8fc5.js"
+    "static/js/main.60331db7.js"
   ]
 }
