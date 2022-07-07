@@ -20,6 +20,7 @@ const ConfigurationMap = ({ sizeWidth }) => {
             arrDown={modulesSelectedDown} 
             updateArrFunctionUp={setModulesSelectedUp} 
             updateArrFunctionDown={setModulesSelectedDown} 
+            arrMiddle={modulesSelectedMiddle}
             listNum={1}/>
         </DragAndDropMiddle>
       </div> 
@@ -35,6 +36,7 @@ const ConfigurationMap = ({ sizeWidth }) => {
             arrDown={modulesSelectedDown2} 
             updateArrFunctionUp={setModulesSelectedUp2} 
             updateArrFunctionDown={setModulesSelectedDown2} 
+            arrMiddle={modulesSelectedMiddle2}
             listNum={2}/>
         </DragAndDropMiddle>
     </div>;
@@ -56,6 +58,7 @@ const ConfigurationMap = ({ sizeWidth }) => {
                   arrDown={modulesSelectedDown} 
                   updateArrFunctionUp={setModulesSelectedUp} 
                   updateArrFunctionDown={setModulesSelectedDown} 
+                  arrMiddle={modulesSelectedMiddle}
                   listNum={1}/>
               </DragAndDropMiddle>
             </div>

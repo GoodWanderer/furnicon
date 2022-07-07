@@ -38,25 +38,6 @@ const ButtonMode = () => {
     <div className="configuration-layout-choise">
       <div className="configuration-layout-choise__content _container">
         <div className="configuration-layout-choise__row">
-          {/* <div className="configuration-layout-choise__item">
-            <h3 className="configuration-layout-choise__title">Глубина</h3>
-            <ul className={`configuration-layout-choise__list ${currentModuleSelected?.modeles?.up3?'active':''}`}>
-              <li 
-                onClick={() => onSetDepth('full')}
-                className={`configuration-layout-choise__list-item ${currentModuleSelected?.depth==='full'?'active':''}`}
-                >
-                <div className="configuration-layout-choise__img"><img src={img02} alt="img1" /></div>
-                <p className="configuration-layout-choise__name">D{depth}</p>
-              </li>
-              <li 
-                onClick={() => onSetDepth('half')}
-                className={`configuration-layout-choise__list-item ${currentModuleSelected?.depth==='half'?'active':''}`}
-                >
-                <div className="configuration-layout-choise__img"><img src={img01} alt="img2" /></div>
-                <p className="configuration-layout-choise__name">D{depth/2}</p>
-              </li>
-            </ul>
-          </div> */}
           <Mezzanine />
           <Walls />
         </div>
@@ -105,17 +86,15 @@ const Mezzanine = () => {
     }
   } 
 
+  useEffect(() => {
+    if (currentModuleSelected?.modeles?.up3)
+      console.log(currentModuleSelected?.modeles?.up3 );
+  }, [currentModuleSelected])
+
   return (
     <div className="configuration-layout-choise__item">
       <h3 className="configuration-layout-choise__title">Антресоль</h3>
       <ul className={`configuration-layout-choise__list ${currentModuleSelected?.modeles?.up3?'active':''}`}>
-        {/* <li 
-          onClick={() => onSetMounted('x2')}
-          className={`configuration-layout-choise__list-item ${currentModuleSelected?.mounted==='x2'?'active':''}`}
-          >
-          <div className="configuration-layout-choise__img"><img src={img06} alt="img1" /></div>
-          <p className="configuration-layout-choise__name">X2</p>
-        </li> */}
         <li 
           onClick={() => onSetMounted('x1')}
           className={`configuration-layout-choise__list-item ${currentModuleSelected?.mounted==='x1'?'active':''}`}

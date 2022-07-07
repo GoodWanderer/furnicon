@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentModuleSelected, setModulesSelectedDown } from './../../actions/index';
+import { setCurrentModuleSelected, setModulesSelectedDown, setModulesSelectedDown2, setModulesSelectedMiddle, setModulesSelectedMiddle2 } from './../../actions/index';
 
 import useResize from './../../service/Resize';
+
+import ParametersModuleTechnic from './ParametersModuleTechnic/ParametersModuleTechnic';
 
 import {closeSvg, selectSvg, onSvg} from './../../resources/img/parametersModule'
 
 import './parametersModule.scss';
 
 const ParametersModule = () => {
-  const {currentModuleSelected, } = useSelector(state => state);
+  const { currentModuleSelected } = useSelector(state => state);
+
   const parametersModuleView = currentModuleSelected !== false ? <ParametersModuleView /> : null;
 
   return (
@@ -21,7 +24,7 @@ const ParametersModule = () => {
 };
 
 const ParametersModuleView = () => {
-  const {currentModuleSelected, modulesSelectedDown, modulesCommon} = useSelector(state => state);
+  const {currentModuleSelected, modulesSelectedDown, modulesSelectedDown2, modulesSelectedMiddle, modulesSelectedMiddle2, modulesCommon, wall} = useSelector(state => state);
   const dispatch = useDispatch();
 
   const {onResizeWidth} = useResize();
@@ -158,14 +161,12 @@ const ParametersModuleView = () => {
       })]
     ))
   } 
-
   const onSetMaterialActive = (value) => {
     if (materialActive === value && materialActive !== 0)
       setMaterialActive(0);
     else
       setMaterialActive(value);
   }
-
   const onSetMaterial = (value) => {
     onSetMaterialActive(0);
     setMeterial(value);
@@ -187,7 +188,6 @@ const ParametersModuleView = () => {
       })]
     ))
   }
-
   const onSetBackWall = (value) => {
     onSetMaterialActive(0);
     setBackWall(value);
@@ -215,10 +215,8 @@ const ParametersModuleView = () => {
     let newModule;
     if (id === 'start') {
       newModule = modulesCommon.find(module => module.id === currentModuleSelected.modeles.down.startId);
-      console.log('b1', newModule);
     } else {
       newModule = modulesCommon.find(module => module.id === id);
-      console.log('b2', newModule);
     }
     let down = {
       startId: currentModuleSelected.modeles.down.startId,
@@ -301,7 +299,33 @@ const ParametersModuleView = () => {
                                     onSetShelves={onSetShelves} 
                                     onSetRemovableShelves={onSetRemovableShelves}/>:null;
 
-  // console.log(currentModuleSelected?.modeles?.down);
+  const renderTechnic = () => {
+    if (wall === 1) {
+      return <ParametersModuleTechnic
+        arrMiddle={modulesSelectedMiddle}
+        updateArrFunctionMiddle={setModulesSelectedMiddle}
+        arrDown={modulesSelectedDown}
+        updateArrFunctionDown={setModulesSelectedDown}
+        parametersModuleShelves={parametersModuleShelves}
+        onSetMaterialActive={onSetMaterialActive}
+        onSetModuleTest={onSetModuleTest} materialActive={materialActive}
+        setMaterialActive={setMaterialActive}
+      />
+    } else {
+      return <ParametersModuleTechnic
+        arrMiddle={modulesSelectedMiddle2}
+        updateArrFunctionMiddle={setModulesSelectedMiddle2}
+        arrDown={modulesSelectedDown2}
+        updateArrFunctionDown={setModulesSelectedDown2}
+        parametersModuleShelves={parametersModuleShelves}
+        onSetMaterialActive={onSetMaterialActive}
+        onSetModuleTest={onSetModuleTest} materialActive={materialActive}
+        setMaterialActive={setMaterialActive}
+      />
+    }
+  }
+
+  const technicView = renderTechnic();
 
   return (
     <div className="parameters-Module">
@@ -444,14 +468,8 @@ const ParametersModuleView = () => {
             </ul>
           </div>
         </div>
-        <ParametersModuleTechnic
-          parametersModuleShelves={parametersModuleShelves}
-          onSetMaterialActive={onSetMaterialActive} currentModuleSelected={currentModuleSelected}
-          onSetModuleTest={onSetModuleTest} materialActive={materialActive}
-          setMaterialActive={setMaterialActive}
-        />
         {/* {parametersModuleShelves} */}
-        
+        {technicView}
         <div className="parameters-Module-body__block">
           <span className="parameters-Module-body__name m-16">Тип фасада</span>
           <div className="parameters-Module-body__select">
@@ -520,68 +538,6 @@ const ParametersModuleShelves = ({shelves, removableShelves, onSetShelves, onSet
       </div>
     {/* </div> */}
     </>
-  )
-}
-
-const ParametersModuleTechnic = ({parametersModuleShelves, onSetMaterialActive, currentModuleSelected, onSetModuleTest, materialActive, setMaterialActive}) => {
-  
-  const typeRender = () => {
-    // if (currentModuleSelected?.modeles?.down?.id !== 7 && currentModuleSelected?.modeles?.down?.id !== 8)
-    //   return (
-    //     <>
-    //       <li
-    //         onClick={() => setMaterialActive(0)} 
-    //         className="parameters-Module-body__select-item">Полки</li>
-    //     </>
-    //   )
-    // }
-    return (
-      <>
-        <li
-          onClick={() => onSetModuleTest('start')} 
-          className="parameters-Module-body__select-item">Полки</li>
-        <li
-          onClick={() => onSetModuleTest(7)} 
-          className="parameters-Module-body__select-item">Под духовку</li>
-        <li 
-          onClick={() => onSetModuleTest(8)} 
-          className="parameters-Module-body__select-item">Под мойку</li>
-      </>
-    )
-  }
-
-  const typeView = typeRender(); 
-
-  return (
-    <div className="parameters-Module-body__block">
-      <div
-        style={{alignItems: 'center'}} 
-        className="parameters-Module-body__row">
-        <div
-          style={{margin: 0}} 
-          className="parameters-Module-body__half">
-          <span className="parameters-Module-body__name">Тип модуля</span>
-        </div>
-        <div
-          style={{margin: 0}} 
-          className="parameters-Module-body__half">
-          <div className="parameters-Module-body__select">
-            <div
-              onClick={() => onSetMaterialActive(3)} 
-              className="parameters-Module-body__select-row">
-              <div className="parameters-Module-body__select-value">
-                {currentModuleSelected?.modeles?.down?.id===7?'Под духовку':currentModuleSelected?.modeles?.down?.id===8?'Под мойку':'Полки'}
-              </div>
-              <img src={selectSvg} alt="Выбрать" />
-            </div>
-            <ul className={`parameters-Module-body__select-list ${materialActive===3?'active':''}`}>
-              {typeView}
-            </ul>
-          </div>        
-        </div>
-      </div>
-      {parametersModuleShelves}
-    </div>
   )
 }
 

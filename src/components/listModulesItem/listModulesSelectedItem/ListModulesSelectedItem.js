@@ -45,7 +45,6 @@ const ListModulesSelectedItem = ({el, index, cName, moveModulesSelected, view, w
   const dragDropRef = dragRef(dropRef(ref))
 
   const opacity = isDragging ? 0 : 1
-  console.log('itemHeight', el);
   const itemHeight = el.type === 'up' ? '140px':'170px';
 
   const calcWidth = calcWidthPercentItem(el.width);

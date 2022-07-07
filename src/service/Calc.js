@@ -20,9 +20,13 @@ const useCalc = () => {
     return widthPercent * 80;
   }
 
-  const calcWidthAll = (arr) => {
+  const calcWidthAll = (arrModules, arrMiddles) => {
     let width = 0;
-    arr.forEach((item) => {
+    arrMiddles.forEach((item) => {
+      if (item.content !== 'body')
+        width += item.width;
+    });
+    arrModules.forEach((item) => {
       width += item.width;
     });
     return width;

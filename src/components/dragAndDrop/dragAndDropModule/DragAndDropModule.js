@@ -30,7 +30,6 @@ const DragAndDropModule = ({arr, updateArrFunction, view}) => {
 
   const renderSelectedItems = () => {
     return arr.map((item, index) => {
-      console.log(`arr${view}`, item);
       let contentView;
       if (view === 'w-up' || view === 'w-up-2') {
         const up1View = item.modeles.up1 !== false ? <ListModulesPartUp1 item={item} width={null} /> : null;

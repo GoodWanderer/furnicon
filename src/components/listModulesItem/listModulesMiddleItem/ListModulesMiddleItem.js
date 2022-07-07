@@ -59,8 +59,6 @@ const ListModulesMiddleItem = ({el, index, noMove, func, listNum, children}) => 
 
   const calcWidth = calcWidthPercentItem(el.width);
 
-  console.log(calcWidth);
-
   const onClickItem = (el) => {
     // dispatch(setCurrentModuleSelectedListNum(listNum));
     dispatch(setCurrentModuleSelected(el));

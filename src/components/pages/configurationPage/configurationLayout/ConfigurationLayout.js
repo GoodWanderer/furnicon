@@ -164,8 +164,8 @@ const ConfigurationLayout = () => {
 
   const sizeWidth = useMemo(() => calcWidthPercent(width), [width, configurationMainPage]);
 
-  const allModulesWidth1 = calcWidthAll(modulesSelectedDown);
-  const allModulesWidth2 = calcWidthAll(modulesSelectedDown2);
+  // const allModulesWidth1 = calcWidthAll(modulesSelectedDown);
+  // const allModulesWidth2 = calcWidthAll(modulesSelectedDown2);
 
   let middleWidth = 0;
   if (modulesSelectedMiddle.length > 1) {
@@ -176,90 +176,90 @@ const ConfigurationLayout = () => {
     });
   }
 
-  const onSetResizeWidthEnd = (e) => {
-    if (resizeActiveModuleWidth) {
-      e.preventDefault();
-      dispatch(setResizeActiveModuleWidth(false));
-    }
-  }
+  // const onSetResizeWidthEnd = (e) => {
+  //   if (resizeActiveModuleWidth) {
+  //     e.preventDefault();
+  //     dispatch(setResizeActiveModuleWidth(false));
+  //   }
+  // }
 
-  const onResizeWidth = (e) => {
-    if (resizeActiveModuleWidth) {
-      e.preventDefault();
+  // const onResizeWidth = (e) => {
+  //   if (resizeActiveModuleWidth) {
+  //     e.preventDefault();
 
-      let vList = 0;
+  //     let vList = 0;
 
-      let eTarget = document.querySelector('.configuration-layout-plan-selected__item-w-down.active .resize-w-btn');
-      if (eTarget === null) {
-        ++vList;
-        eTarget = document.querySelector('.configuration-layout-plan-selected__item-w-down-2.active .resize-w-btn');
-      }
+  //     let eTarget = document.querySelector('.configuration-layout-plan-selected__item-w-down.active .resize-w-btn');
+  //     if (eTarget === null) {
+  //       ++vList;
+  //       eTarget = document.querySelector('.configuration-layout-plan-selected__item-w-down-2.active .resize-w-btn');
+  //     }
 
-      const cordNull = eTarget.parentElement.parentElement.offsetLeft;
-      const cordMouse = e.pageX;
-      const cordModule = eTarget.parentElement.parentElement.parentElement.parentElement.offsetLeft;
-      const newItemWidth = (cordMouse - cordModule - 10 - cordNull) * 400 / 70 - 500;
+  //     const cordNull = eTarget.parentElement.parentElement.offsetLeft;
+  //     const cordMouse = e.pageX;
+  //     const cordModule = eTarget.parentElement.parentElement.parentElement.parentElement.offsetLeft;
+  //     const newItemWidth = (cordMouse - cordModule - 10 - cordNull) * 400 / 70 - 500;
 
-      let formatNewItem = Math.trunc(newItemWidth/ 10) * 10;
+  //     let formatNewItem = Math.trunc(newItemWidth/ 10) * 10;
 
-      if (formatNewItem < 200) {
-        if (formatNewItem <= currentModuleSelected.width) 
-          formatNewItem = 200;
-      }
-      else if (formatNewItem > 800) {
-        if (formatNewItem >= currentModuleSelected.width) 
-          formatNewItem = 800;
-      }
+  //     if (formatNewItem < 200) {
+  //       if (formatNewItem <= currentModuleSelected.width) 
+  //         formatNewItem = 200;
+  //     }
+  //     else if (formatNewItem > 800) {
+  //       if (formatNewItem >= currentModuleSelected.width) 
+  //         formatNewItem = 800;
+  //     }
 
-      if (vList === 0) { 
-        if (allModulesWidth1 + (formatNewItem - currentModuleSelected.width) > width - middleWidth) {
-          if (formatNewItem >= currentModuleSelected.width) {
-              formatNewItem = Math.trunc((width - middleWidth - allModulesWidth1 + currentModuleSelected.width) / 10) * 10;
-            }
-        }
-      } else {
-        if (allModulesWidth2 + (formatNewItem - currentModuleSelected.width) > width) {
-          if (formatNewItem >= currentModuleSelected.width) {
-              formatNewItem = Math.trunc((width - allModulesWidth2 + currentModuleSelected.width) / 10) * 10;
-            }
-        }
-      }
+  //     if (vList === 0) { 
+  //       if (allModulesWidth1 + (formatNewItem - currentModuleSelected.width) > width - middleWidth) {
+  //         if (formatNewItem >= currentModuleSelected.width) {
+  //             formatNewItem = Math.trunc((width - middleWidth - allModulesWidth1 + currentModuleSelected.width) / 10) * 10;
+  //           }
+  //       }
+  //     } else {
+  //       if (allModulesWidth2 + (formatNewItem - currentModuleSelected.width) > width) {
+  //         if (formatNewItem >= currentModuleSelected.width) {
+  //             formatNewItem = Math.trunc((width - allModulesWidth2 + currentModuleSelected.width) / 10) * 10;
+  //           }
+  //       }
+  //     }
 
-      dispatch(setCurrentModuleSelected(
-        {...currentModuleSelected, 
-          width: formatNewItem,
-        }
-      ))
+  //     dispatch(setCurrentModuleSelected(
+  //       {...currentModuleSelected, 
+  //         width: formatNewItem,
+  //       }
+  //     ))
 
-      if (vList === 0) {
-        dispatch(setModulesSelectedDown(
-          [...modulesSelectedDown.map((el) => {
-            if (el.id === currentModuleSelected.id)
-              return {...currentModuleSelected, 
-                        width: formatNewItem,
-                      }
-            else {
-              return el
-            }
-          })
-          ]
-        ))
-      } else {
-        dispatch(setModulesSelectedDown2(
-          [...modulesSelectedDown2.map((el) => {
-            if (el.id === currentModuleSelected.id)
-              return {...currentModuleSelected, 
-                        width: formatNewItem,
-                      }
-            else {
-              return el
-            }
-          })
-          ]
-        ))
-      }
-    }
-  }
+  //     if (vList === 0) {
+  //       dispatch(setModulesSelectedDown(
+  //         [...modulesSelectedDown.map((el) => {
+  //           if (el.id === currentModuleSelected.id)
+  //             return {...currentModuleSelected, 
+  //                       width: formatNewItem,
+  //                     }
+  //           else {
+  //             return el
+  //           }
+  //         })
+  //         ]
+  //       ))
+  //     } else {
+  //       dispatch(setModulesSelectedDown2(
+  //         [...modulesSelectedDown2.map((el) => {
+  //           if (el.id === currentModuleSelected.id)
+  //             return {...currentModuleSelected, 
+  //                       width: formatNewItem,
+  //                     }
+  //           else {
+  //             return el
+  //           }
+  //         })
+  //         ]
+  //       ))
+  //     }
+  //   }
+  // }
 
   const parametersModule = currentModuleSelected?.modeles?.down?.id || 
                            currentModuleSelected?.modeles?.up1?.id || 
@@ -273,24 +273,14 @@ const ConfigurationLayout = () => {
           <ButtonMode />
           {parametersModule}
           <div
-            onMouseUp={(e) => onSetResizeWidthEnd(e)} 
-            onMouseMove={(e) => onResizeWidth(e, sizeWidth)}  
+            // onMouseUp={(e) => onSetResizeWidthEnd(e)} 
+            // onMouseMove={(e) => onResizeWidth(e, sizeWidth)}  
             className="configuration-layout-plan">
             <div className="configuration-layout-plan__content _container">
               <ConfigurationMap sizeWidth={sizeWidth}/>
             </div>
           </div>
         </section>
-        {/* <section className="configuration-filter">
-          <div className="configuration-filter__content _container">
-            <ButtonFilterType />
-            <div className="configuration-filter__filters configuration-filter-filters">
-              <ButtonFilterFeatures />
-              <div className="configuration-filter-filters__quanity">{modulesQuanityMessage}</div>
-            </div>
-            <ListModulesCommon />
-          </div>
-        </section> */}
       </main>
     </>
   );
