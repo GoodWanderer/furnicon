@@ -1,4 +1,5 @@
 .configuration-start {
+  padding: 0 0 70px;
   /* .configuration-start__content */
   &__content {}
   /* .configuration-start__title */
@@ -22,6 +23,7 @@
     &.active {
       .configuration-start__img {
         border: 1px solid #689A56;
+        background: #A8CD9B;
         &::after {
           content: url('./../../../../resources/img/configurationStart/on.svg');
           position: absolute;

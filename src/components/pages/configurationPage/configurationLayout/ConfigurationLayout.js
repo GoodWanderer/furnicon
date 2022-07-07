@@ -1,189 +1,298 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentModuleSelected, setResizeActiveModuleWidth, setModulesSelectedDown, setModulesSelectedDown2, setModulesCommon } from './../../../../actions/index';
 
-import NavLayout from './../../../nav/navLayout/NavLayout';
+import useCalc from './../../../../service/Calc';
 import ButtonMode from './../../../button/buttonMode/ButtonMode';
-
-import SizePlan from './../../../sizePlan/SizePlan';
-
-import ButtonFilterType from './../../../button/buttonFilter/buttonFilterType/ButtonFilterType';
-import ButtonFilterFeatures from './../../../button/buttonFilter/buttonFilterFeatures/ButtonFilterFeatures';
-
-import ListModulesCommon from './../../../listModules/listModulesCommon/ListModulesCommon';
-
+import ParametersModule from './../../../parametersModule/ParametersModule';
+import ConfigurationMap from './../../../configurationMap/ConfigurationMap';
 
 import './configurationLayout.scss';
-import ListModulesSelected from './../../../listModules/listModulesSelected/ListModulesSelected';
 
-const ConfigurationLayout = ({setPage}) => {
-  const { modulesQuanity } = useSelector(state => state);
-  // const [productsSelecteed, setProductsSelecteed] = useState([])
-  // const [templateProducts, setTemplateProducts] = useState([
-  //   {
-  //     'id': 1,
-  //     'uid': false,
-  //   },
-  //   {
-  //     'id': 2,
-  //     'uid': false,
-  //   }, 
-  // ])
+import pImg01 from './../../../listModules/img01.svg';
+import pImg02 from './../../../listModules/img02.svg';
+import pImg022 from './../../../listModules/img022.svg';
+import pImg03 from './../../../listModules/img03.svg';
+import pImg04 from './../../../listModules/img04.svg';
+import pImg05 from './../../../listModules/img05.svg';
+import pImg06 from './../../../listModules/img06.svg';
+import pImg07 from './../../../listModules/img07.svg';
+import pImg08 from './../../../listModules/img08.svg';
+import pImg01Active from './../../../listModules/img01-active.svg';
+import pImg02Active from './../../../listModules/img02-active.svg';
+import pImg022Active from './../../../listModules/img022-active.svg';
+import pImg03Active from './../../../listModules/img03-active.svg';
+import pImg04Active from './../../../listModules/img04-active.svg';
+import pImg05Active from './../../../listModules/img05-active.svg';
+import pImg06Active from './../../../listModules/img06-active.svg';
+import pImg07Active from './../../../listModules/img07-active.svg';
+import pImg08Active from './../../../listModules/img08-active.svg';
 
-  // const [uidActiveProduct, setUidActiveProduct] = useState(false)
-  // const [selectedProduct, setSelectedProduct] = useState(false);
 
-  // const onChangeTemplates = (id) => {
-  //   if (uidActiveProduct !== false) {
-  //     const item1 = templateProducts.find(function(item) {
-  //       if (item.id === id) return true;
-  //     });
-  //     const item2 = productsSelecteed.find(function(item) {
-  //       if (item.uid === uidActiveProduct) return true;
-  //     });
-  //     setTemplateProducts(templateProducts => [
-  //       ...templateProducts.filter(item => { if (item.id < id) return item}),
-  //       {...item1, uid: item2.uid, img: item2.img},
-  //       ...templateProducts.filter(item => { if (item.id > id) return item}),
-  //     ])
-  //     setProductsSelecteed(productsSelecteed => [
-  //       ...productsSelecteed.filter(item => { if (item.uid !== item2.uid) return item}),
-  //     ])
-  //     setUidActiveProduct(false)
-  //   }
+const ConfigurationLayout = () => {
+  const {modulesSelectedMiddle, width, resizeActiveModuleWidth, currentModuleSelected, modulesSelectedDown, modulesSelectedDown2, configurationMainPage } = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setModulesCommon([
+      {
+        'startId': 1,
+        'id': 1,
+        'quanity': 0,
+        'name': 'Верхний шкаф',
+        'text': 'Одна дверь',
+        'img': pImg02,
+        'activeImg': pImg02Active,
+
+        'type': 'up',
+        'width': 40,
+        'appointment': 'storage',
+
+        'indent': 0
+      },
+      // {
+      //   'id': 2,
+      //   'quanity': 0,
+      //   'name': 'Верхний ящик',
+      //   'text': 'Одна дверь',
+      //   'img': pImg01,
+      //   'activeImg': pImg01Active,
+
+      //   'type': 'up',
+      //   'width': 40,
+      //   'appointment': 'storage',
+
+      //   'indent': 0,
+      // },
+      {
+        'startId': 2,
+        'id': 2,
+        'quanity': 0,
+        'name': 'Нижний шкаф',
+        'text': 'Одна дверь',
+        'img': pImg022,
+        'activeImg': pImg022Active,
+
+        'type': 'down',
+        'width': 40,
+        'appointment': 'storage',
+
+        'replaceMax': 3,
+        'indent': 0,
+      },
+      {
+        'startId': 3,
+        'id': 3,
+        'quanity': 0,
+        'name': 'Нижний шкаф',
+        'text': 'Двойная дверь',
+        'img': pImg06,
+        'activeImg': pImg06Active,
+
+        'type': 'down',
+        'width': 60,
+        'appointment': 'storage',
+
+        'replaceMin': 2,
+        'indent': 0,
+      },
+      {
+        'startId': 4,
+        'id': 4,
+        'quanity': 0,
+        'name': 'Нижняя угловая',
+        'text': 'Левый',
+        'img': pImg07,
+        'activeImg': pImg07Active,
+
+        'type': 'down',
+        'width': 60,
+        'appointment': 'storage',
+
+        'indent': 0,
+      },
+      {
+        'startId': 5,
+        'id': 5,
+        'quanity': 0,
+        'name': 'Нижняя угловая',
+        'text': 'правый',
+        'img': pImg08,
+        'activeImg': pImg08Active,
+
+        'type': 'down',
+        'width': 60,
+        'appointment': 'storage',
+
+        'indent': 0,
+      },
+      {
+        'startId': 7,
+        'id': 7,
+        'quanity': 0,
+        'name': 'Под духовку',
+        'text': 'Описание',
+        'img': pImg03,
+        'activeImg': pImg03Active,
+
+        'type': 'down',
+        'width': 80,
+        'appointment': 'technic',
+
+        'indent': 24,
+      },
+      {
+        'startId': 8,
+        'id': 8,
+        'quanity': 0,
+        'name': 'Под мойку',
+        'text': 'Описание',
+        'img': pImg04,
+        'activeImg': pImg04Active,
+
+        'type': 'down',
+        'width': 80,
+        'appointment': 'washing',
+
+        'indent': 39,
+      },
+    ]))
+  }, [])
+
+  const { calcWidthPercent, calcWidthAll } = useCalc();
+
+  // const renderQuanityMessage = (q) => {
+  //   if (q === 1)
+  //     return '1 модуль';
+  //   else if (q > 1 && q < 5) 
+  //     return `${q} модулья`;
+  //   else
+  //     return `${q} модулей`;
   // }
 
-  // const renderItemsSelected = (itmes) => {
-  //   return itmes.map(item => {
-  //     return (
-  //       <div
-  //         key={item.uid} 
-  //         onClick={() => setUidActiveProduct(item.uid)}
-  //         className="configuration-layout-plan-selected__item">
-  //         <div className={`configuration-layout-plan-selected__img ${item.uid === uidActiveProduct ? 'active' : ''}`}>
-  //           <img src={item.uid === uidActiveProduct ? item.activeImg : item.img} alt="Товар" />
-  //         </div>
-  //       </div>
-  //     )
-  //   });
-  // }
+  // const modulesQuanityMessage = useMemo(() => renderQuanityMessage(modulesQuanity), [modulesQuanity]);
 
-  // const renderItemsTemplate = (items, itemsSelecteed) => {
-  //   const yes = items.find(function(item) {
-  //     if (item.uid) return true;
-  //   });
-  //   return items.map(item => {
-  //     if (yes && item.uid) {
-  //       return (
-  //         <div 
-  //           key={item.id}
-  //           className="configuration-layout-plan-template__wrapper-item used">
-  //           <div className={`configuration-layout-plan-selected__img`}>
-  //             <img src={item.img} alt="Товар" />
-  //           </div>
-  //         </div>
-  //       )
-  //     } else {
-  //       return (
-  //         <div 
-  //           key={item.id}
-  //           onClick={() => onChangeTemplates(item.id)}
-  //           className="configuration-layout-plan-template__wrapper-item">
-  //         </div>
-  //       ) 
-  //     }
-  //   })
-  // }
+  const sizeWidth = useMemo(() => calcWidthPercent(width), [width, configurationMainPage]);
 
-  // // const selectedItems = selectedProduct ? filterSelectedItem(products) : products;
+  const allModulesWidth1 = calcWidthAll(modulesSelectedDown);
+  const allModulesWidth2 = calcWidthAll(modulesSelectedDown2);
 
-  // const selected = renderItemsSelected(productsSelecteed);
-
-  // const template = renderItemsTemplate(templateProducts, productsSelecteed);
-
-  // // * 
-
-  // // *
-  // const [activeChangeWidth, setActiveChangeWidth] = useState(false);
-  // const [width, setWidth] = useState(165);
-  // const [kWidth, setKWidth] = useState(1000);
-
-  const renderQuanityMessage = (q) => {
-    if (q === 1)
-      return '1 модуль';
-    else if (q > 1 && q < 5) 
-      return `${q} модулья`;
-    else
-      return `${q} модулей`;
+  let middleWidth = 0;
+  if (modulesSelectedMiddle.length > 1) {
+    modulesSelectedMiddle.forEach((item) => {
+      if (item.content !== 'body') {
+        middleWidth += item.width;
+      }
+    });
   }
 
-  const modulesQuanityMessage = useMemo(() => renderQuanityMessage(modulesQuanity), [modulesQuanity]);
-
-  const onSetPage = () => {                  
-    setPage(3)
+  const onSetResizeWidthEnd = (e) => {
+    if (resizeActiveModuleWidth) {
+      e.preventDefault();
+      dispatch(setResizeActiveModuleWidth(false));
+    }
   }
+
+  const onResizeWidth = (e) => {
+    if (resizeActiveModuleWidth) {
+      e.preventDefault();
+
+      let vList = 0;
+
+      let eTarget = document.querySelector('.configuration-layout-plan-selected__item-w-down.active .resize-w-btn');
+      if (eTarget === null) {
+        ++vList;
+        eTarget = document.querySelector('.configuration-layout-plan-selected__item-w-down-2.active .resize-w-btn');
+      }
+
+      const cordNull = eTarget.parentElement.parentElement.offsetLeft;
+      const cordMouse = e.pageX;
+      const cordModule = eTarget.parentElement.parentElement.parentElement.parentElement.offsetLeft;
+      const newItemWidth = (cordMouse - cordModule - 10 - cordNull) * 400 / 70 - 500;
+
+      let formatNewItem = Math.trunc(newItemWidth/ 10) * 10;
+
+      if (formatNewItem < 200) {
+        if (formatNewItem <= currentModuleSelected.width) 
+          formatNewItem = 200;
+      }
+      else if (formatNewItem > 800) {
+        if (formatNewItem >= currentModuleSelected.width) 
+          formatNewItem = 800;
+      }
+
+      if (vList === 0) { 
+        if (allModulesWidth1 + (formatNewItem - currentModuleSelected.width) > width - middleWidth) {
+          if (formatNewItem >= currentModuleSelected.width) {
+              formatNewItem = Math.trunc((width - middleWidth - allModulesWidth1 + currentModuleSelected.width) / 10) * 10;
+            }
+        }
+      } else {
+        if (allModulesWidth2 + (formatNewItem - currentModuleSelected.width) > width) {
+          if (formatNewItem >= currentModuleSelected.width) {
+              formatNewItem = Math.trunc((width - allModulesWidth2 + currentModuleSelected.width) / 10) * 10;
+            }
+        }
+      }
+
+      dispatch(setCurrentModuleSelected(
+        {...currentModuleSelected, 
+          width: formatNewItem,
+        }
+      ))
+
+      if (vList === 0) {
+        dispatch(setModulesSelectedDown(
+          [...modulesSelectedDown.map((el) => {
+            if (el.id === currentModuleSelected.id)
+              return {...currentModuleSelected, 
+                        width: formatNewItem,
+                      }
+            else {
+              return el
+            }
+          })
+          ]
+        ))
+      } else {
+        dispatch(setModulesSelectedDown2(
+          [...modulesSelectedDown2.map((el) => {
+            if (el.id === currentModuleSelected.id)
+              return {...currentModuleSelected, 
+                        width: formatNewItem,
+                      }
+            else {
+              return el
+            }
+          })
+          ]
+        ))
+      }
+    }
+  }
+
+  const parametersModule = currentModuleSelected?.modeles?.down?.id || 
+                           currentModuleSelected?.modeles?.up1?.id || 
+                           currentModuleSelected?.modeles?.up3?.id ?
+                           <ParametersModule />:null;
 
   return (
     <>
-      <NavLayout onSetPage={onSetPage}/>
       <main>
-        <section className="configuration-layout">
+        <section className="configuration-layout" style={{position: 'relative'}}>
           <ButtonMode />
-
+          {parametersModule}
           <div
-            // onMouseUp={() => setActiveChangeWidth(false)} 
+            onMouseUp={(e) => onSetResizeWidthEnd(e)} 
+            onMouseMove={(e) => onResizeWidth(e, sizeWidth)}  
             className="configuration-layout-plan">
-            <div 
-              // onMouseMove={(e) => onChageSize(e)}
-              // onMouseMove={(e) => onChageSize(e)} 
-              // onMouseUp={() => setActiveChangeWidth(false)}
-              className="configuration-layout-plan__content _container">
-
-              <SizePlan />
-
-              <div className="configuration-layout-plan__template configuration-layout-plan-template">
-                {/* <div className={`configuration-layout-plan-template__wrapper config-1 active ${uidActiveProduct?'selected':''}`}>
-                  <div className="configuration-layout-plan-template__wrapper-1">
-                    {template}
-                  </div>
-                  <div className="configuration-layout-plan-template__wrapper-2"></div>
-                </div>
-                <div className="configuration-layout-plan-template__wrapper config-2">
-                  <div className="configuration-layout-plan-template__wrapper-1">
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                  </div>
-                  <div className="configuration-layout-plan-template__wrapper-2">
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                  </div>
-                </div>
-                <div className="configuration-layout-plan-template__wrapper config-3">
-                  <div className="configuration-layout-plan-template__wrapper-1">
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                  </div>
-                  <div className="configuration-layout-plan-template__wrapper-2">
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                  </div>
-                </div>
-                <div className="configuration-layout-plan-template__wrapper config-4">
-                  <div className="configuration-layout-plan-template__wrapper-1">
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                    <div className="configuration-layout-plan-template__wrapper-item"></div>
-                  </div>
-                  <div className="configuration-layout-plan-template__wrapper-2"></div>
-                </div> */}
-              </div>
-              {/* <div className="configuration-layout-plan__selected configuration-layout-plan-selected">
-                {selected}
-              </div> */}
-              <ListModulesSelected />
+            <div className="configuration-layout-plan__content _container">
+              <ConfigurationMap sizeWidth={sizeWidth}/>
             </div>
           </div>
         </section>
-        <section className="configuration-filter">
+        {/* <section className="configuration-filter">
           <div className="configuration-filter__content _container">
             <ButtonFilterType />
             <div className="configuration-filter__filters configuration-filter-filters">
@@ -192,7 +301,7 @@ const ConfigurationLayout = ({setPage}) => {
             </div>
             <ListModulesCommon />
           </div>
-        </section>
+        </section> */}
       </main>
     </>
   );

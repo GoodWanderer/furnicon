@@ -1,116 +1,167 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setModulesSelected, setCurrentModuleSelected } from '../../../actions';
+import { setCurrentModuleSelected } from '../../../actions';
 
 import { v4 as uuidv4 } from 'uuid';
 
-const ListModulesSelected = () => {
-  const { modulesSelected, currentModuleSelected } = useSelector(state => state);
+import ListModulesAddItem from './../../listModulesItem/listModulesAddItem/ListModulesAddItem';
+
+// import pImg01 from './../img01.svg';
+import pImg02 from './../img02.svg';
+import pImg022 from './../img022.svg';
+// import pImg03 from './../img03.svg';
+// import pImg04 from './../img04.svg';
+// import pImg05 from './../img05.svg';
+// import pImg06 from './../img06.svg';
+// import pImg07 from './../img07.svg';
+// import pImg08 from './../img08.svg';
+// import pImg01Active from './../img01-active.svg';
+import pImg02Active from './../img02-active.svg';
+import pImg022Active from './../img022-active.svg';
+// import pImg03Active from './../img03-active.svg';
+// import pImg04Active from './../img04-active.svg';
+// import pImg05Active from './../img05-active.svg';
+// import pImg06Active from './../img06-active.svg';
+// import pImg07Active from './../img07-active.svg';
+// import pImg08Active from './../img08-active.svg';
+import DragAndDropModule from './../../dragAndDrop/dragAndDropModule/DragAndDropModule';
+
+import { useEffect } from 'react';
+
+const ListModulesSelected = ({arrUp, updateArrFunctionUp, arrDown, updateArrFunctionDown, listNum}) => {
+  const { width, depth, modulesSelectedMiddle, modulesSelectedMiddle2, wall} = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const onAddModulesSelected = () => {
+  useEffect(() => {
+    console.log('list', listNum, arrUp, arrDown);
+  }, [listNum])
+
+  const onAddModulesSelectedUp = () => {
+    console.log('list', listNum, arrUp, arrDown);
     const id = uuidv4();
     const item = {
       id, 
-      depth: 'full', 
-      mounted: 'x2',
+      type: 'up',
+      depthType: 'full', 
+      mounted: 'x0',
+      width: 600,
+      height: 800,
+      depth,
       modeles: {
-        up1: {},
-        up2: {},
-        down: {}
+        up1: false,
+        up3: {
+          startId: 1,
+          id: 1,
+          img: pImg02,
+          activeImg: pImg02Active,
+          replaceMax: 3,
+          replaceMin: null,
+          indent: 0,
+          appointment: 'storage',
+        }
       }
     }
-    dispatch(setModulesSelected([
-      ...modulesSelected, item
+    dispatch(updateArrFunctionUp([
+      ...arrUp, item
     ]));
     dispatch(setCurrentModuleSelected(item));
   }
 
-  const onSetCurrentModuleSelected = (item) => {
+  const onAddModulesSelectedDown = () => {
+    const id = uuidv4();
+    const item = {
+      id, 
+      type: 'down',
+      width: 600,
+      height: 800,
+      depth,
+      modeles: {
+        down: {
+          startId: 2,
+          id: 2,
+          img: pImg022,
+          activeImg: pImg022Active,
+          replaceMax: 3,
+          replaceMin: null,
+          indent: 0,
+          appointment: 'storage', 
+        },
+      },
+      shelves: 0,
+      removableShelves: false,
+      material: false,
+      backWall: false,
+      front: false,
+      edge: false,
+      ties: 80, 
+    }
+    dispatch(updateArrFunctionDown([
+      ...arrDown, item
+    ]));
     dispatch(setCurrentModuleSelected(item));
   }
 
-  const renderSelectedItems = (items) => {
-    return items.map(item => {
-      const up2View = item.modeles.up2 !== false ? <Up2 item={item}/> : null;
-      const up1View = item.modeles.up1 !== false ? <Up1 width={up2View} item={item}/> : null;
-      const upView = up1View || up2View ? <div className='configuration-layout-plan-selected__up'>{up1View}{up2View}</div> : null;
-      const downView = item.modeles.down !== false ? <Down width={up1View} item={item}/> : null;
-      return (
-        <div 
-          key={item.id} 
-          onClick={() => onSetCurrentModuleSelected(item)}
-          className={`configuration-layout-plan-selected__item ${item.id === currentModuleSelected?.id ? 'active':''}`}>
-          {upView}
-          {downView}
-        </div>
-      )
+  const calсWidth = (arr) => {
+    let w = 0;
+    if (listNum === 1 && modulesSelectedMiddle.length > 1) {
+      modulesSelectedMiddle.forEach((item) => {
+        if (item.content !== 'body') {
+          w += item.width;
+        }
+      });
+    } else if (listNum === 2 && modulesSelectedMiddle2.length > 1) {
+      modulesSelectedMiddle2.forEach((item) => {
+        if (item.content !== 'body') {
+          w += item.width;
+        }
+      });
+    }
+    arr.forEach((item) => {
+      w += item.width;
     });
+    if (w+400 > width) 
+      return false;
+    return true;
   }
 
-  const selectedItems = renderSelectedItems(modulesSelected)
+  const addItemUp = calсWidth(arrUp) ?
+                     <ListModulesAddItem 
+                      middle={null}
+                      classNameType={`up${listNum===1?'':'-2'}`}
+                      onAddModulesSelected={onAddModulesSelectedUp} /> 
+                     : null;
+
+  const addItemDown = calсWidth(arrDown) ?
+                     <ListModulesAddItem 
+                      middle={null}
+                      classNameType={`down${listNum===1?'':'-2'}`}
+                      onAddModulesSelected={onAddModulesSelectedDown} />
+                     : null;
 
   return (
-    <div className="configuration-layout-plan__selected configuration-layout-plan-selected">
-      {selectedItems}
+    <>
       <div
-        onClick={() => onAddModulesSelected()} 
-        className="configuration-layout-plan-selected__item add">
-        <div className={`configuration-layout-plan-selected__text`}>
-          +
-        </div>
+        className="configuration-layout-plan__selected configuration-layout-plan-selected">
+        <DragAndDropModule 
+          arr={arrUp} 
+          updateArrFunction={updateArrFunctionUp} 
+          view={`w-up${listNum===1?'':'-2'}`}/>
+        {addItemUp}
       </div>
-    </div>
+      <div 
+        className="configuration-layout-plan__selected configuration-layout-plan-selected">
+        {/* <div className={`resize-h ${currentModuleSelected?.height ? 'active':''}`}>
+            <span></span>
+            <span>{currentModuleSelected.height} мм</span>
+            <span></span>
+        </div> */}
+        <DragAndDropModule           
+          arr={arrDown} 
+          updateArrFunction={updateArrFunctionDown} 
+          view={`w-down${listNum===1?'':'-2'}`}/>
+        {addItemDown}
+      </div>
+    </>
   );
 };
-
-const Up1 = ({width, item}) => {
-  let img = item?.modeles?.up1?.img;
-  return (
-    <div
-      style={{
-        flex: width?'0 0 calc(50% - 2.5px)':'0 0 100%',
-        border: img?'none':'',
-        background: img?`url(${img}) 0 0/100% 100% no-repeat`:''
-      }} 
-      className={`configuration-layout-plan-selected__up-1`}>
-      {/* <img src="" alt="" /> */}
-    </div>
-  )
-}
-const Up2 = ({item}) => {
-  let img = item?.modeles?.up2?.img;
-  return (
-    <div 
-    style={{
-      border: img?'none':'',
-      background: img?`url(${img}) 0 0/100% 100% no-repeat`:''
-    }} 
-    className={`configuration-layout-plan-selected__up-2`}>
-      {/* <img src="" alt="" /> */}
-    </div>
-  )
-}
-const Down = ({width, item}) => {
-  let img = item?.modeles?.down?.img;
-  return (
-    <div
-      style={{
-        height: !width?'100%':'60%',
-        margin: !width?'0':'5px 0 0',
-        border: img?'none':'',
-        background: img?`url(${img}) 0 0/100% 100% no-repeat`:''
-      }} 
-      className={`configuration-layout-plan-selected__down`}>
-      {/* <img
-        style={{
-          width: width?'100%':'',
-          height: width?'100%':'',
-          objectFit: width?'fill':'',
-          background: url();
-        }}
-        src={item?.modeles?.down?.img} alt="" /> */}
-    </div>
-  )
-}
 
 export default ListModulesSelected;

@@ -20,10 +20,9 @@ const ButtonFilterType = () => {
         className={`configuration-filter-option__item ${filterType==='up'?'active':''}`}
         >Верхняя часть</div>
       <div 
-        // onClick={() => setSelectedProduct(true)}
-        // className={`configuration-filter-option__item ${selectedProduct?'active':''}`}>Используемые</div>
-        className={`configuration-filter-option__item`}
-        >Используемые</div>
+        onClick={() => dispatch(setFilterType('medium'))}
+        className={`configuration-filter-option__item ${filterType==='medium'?'active':''}`}
+        >Пеналы</div>
     </div>
   );
 };

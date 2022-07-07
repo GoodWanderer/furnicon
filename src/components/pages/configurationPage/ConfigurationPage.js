@@ -1,9 +1,8 @@
 import { useSelector } from 'react-redux';
 
 import ConfigurationStart from './configurationStart/ConfigurationStart';
-import ConfigurationLayout from './configurationLayout/ConfigurationLayout';
+import ConfigurationMain from './configurationMain/ConfigurationMain';
 
-import './configurationPage.scss';
 
 const ConfigurationPage = () => {
   const { configurationPage } = useSelector(state => state);
@@ -13,7 +12,7 @@ const ConfigurationPage = () => {
       case 1:
         return <ConfigurationStart />
       case 2:
-        return <ConfigurationLayout />
+        return <ConfigurationMain />
       default: 
         return null;
     }

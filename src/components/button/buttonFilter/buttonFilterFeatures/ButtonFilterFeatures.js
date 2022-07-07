@@ -12,12 +12,12 @@ const ButtonFilterFeatures = () => {
     dispatch(setFilterFeaturesWidth(value))
   }
 
-  const onChangeFilterFeaturesAppointment = (value) => {
-    if (value === filterFeaturesAppointment)
-      dispatch(setFilterFeaturesAppointment(false))
-    else
-    dispatch(setFilterFeaturesAppointment(value))
-  }
+  // const onChangeFilterFeaturesAppointment = (value) => {
+  //   if (value === filterFeaturesAppointment)
+  //     dispatch(setFilterFeaturesAppointment(false))
+  //   else
+  //   dispatch(setFilterFeaturesAppointment(value))
+  // }
 
   return (
     <div className="configuration-filter__filters configuration-filter-filters">
@@ -46,16 +46,26 @@ const ButtonFilterFeatures = () => {
           </div>
         </div>
         <div className="configuration-filter-filters__block">
-          <div
-            onClick={() => onChangeFilterFeaturesAppointment(0)}
-            className={`configuration-filter-filters__item ${filterFeaturesAppointment===0?'active':''}`}
+          {/* <div
+            onClick={() => onChangeFilterFeaturesAppointment('storage')}
+            className={`configuration-filter-filters__item ${filterFeaturesAppointment==='storage'?'active':''}`}
             >Место хранения
           </div>
           <div 
-            onClick={() => onChangeFilterFeaturesAppointment(1)}
-            className={`configuration-filter-filters__item ${filterFeaturesAppointment===1?'active':''}`}
-            >Выполняющие функцию
+            onClick={() => onChangeFilterFeaturesAppointment('washing')}
+            className={`configuration-filter-filters__item ${filterFeaturesAppointment==='washing'?'active':''}`}
+            >Под мойку
           </div>
+          <div 
+            onClick={() => onChangeFilterFeaturesAppointment('oven')}
+            className={`configuration-filter-filters__item ${filterFeaturesAppointment==='oven'?'active':''}`}
+            >Под духовку
+          </div> */}
+          {/* <div 
+            onClick={() => onChangeFilterFeaturesAppointment('technic')}
+            className={`configuration-filter-filters__item ${filterFeaturesAppointment==='technic'?'active':''}`}
+            >Техника
+          </div> */}
         </div>
       </div>
     </div>

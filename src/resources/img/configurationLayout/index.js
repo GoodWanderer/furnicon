@@ -8,5 +8,6 @@ import img07 from './img07.svg'
 import img08 from './img08.svg'
 import exitSvg from './exit.svg';
 import addSvg from './add.svg';
+import arrow from './arrow.svg';
 
-export {img01, img02, img03, img04, img05, img06, img07, img08, exitSvg, addSvg}
+export {img01, img02, img03, img04, img05, img06, img07, img08, exitSvg, addSvg, arrow}

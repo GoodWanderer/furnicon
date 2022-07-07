@@ -1,4 +1,5 @@
 import { equalSvg } from "../../../resources/img/header";
+import { arrowRigth } from "../../../resources/img/header";
 import './headerSub.scss'
 
 const HeaderSub = () => {
@@ -8,6 +9,8 @@ const HeaderSub = () => {
         <li className="header-sub__item"><a href="/" className="header-sub__link">
             <img src={equalSvg} alt="" />
             <span>Проект</span>
+            <img src={arrowRigth} alt="" />
+            <span>Прямая</span>
           </a>
         </li>
       </ul>

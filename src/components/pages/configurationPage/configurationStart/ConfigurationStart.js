@@ -8,12 +8,11 @@ import SizeInput from './../../../sizeInput/SizeInput';
 import './configurationStart.scss';
 
 const ConfigurationStart = () => {
-  const { length, width, depth, height} = useSelector(state => state);
+  const { length, width, depth, height, apron, lengthB, configuration} = useSelector(state => state);
   const dispatch = useDispatch();
 
   const onSetPage = () => {
-    console.log(length, width, depth, height);
-    if (!(length > 0) || !(width > 0) || !(depth > 0) || !(height > 0))
+    if (!(length > 0) || !(width > 0) || !(depth > 0) || !(height > 0) || !(apron > 0) || (!(lengthB > 0) && configuration === 3))
       dispatch(setSizeError(true));
     else                
       dispatch(setConfigurationPage(2))

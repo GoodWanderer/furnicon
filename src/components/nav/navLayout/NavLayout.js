@@ -1,21 +1,32 @@
+import {useSelector, useDispatch} from 'react-redux';
+import { setConfigurationMainPage } from '../../../actions';
+
 import Nav from '../Nav';
 
 import './navLayout.scss';
 
-const NavLayout = ({onSetPage}) => {
+const NavLayout = () => {
+  const { configurationMainPage } = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  const btnNext = configurationMainPage !== 2? <button 
+                                                  onClick={() => dispatch(setConfigurationMainPage(2))}
+                                                  className="currentPositionPanel__btn btn"
+                                                >Далее</button> : null;
+  
   return (
     <Nav>
       <div className="currentPositionPanel__row">
         <div className="currentPositionPanel__left">
-          <div className="currentPositionPanel__page active">макет</div>
-          <div className="currentPositionPanel__page">дизайн</div>
-          <div className="currentPositionPanel__page">расчет</div>
+          <div 
+            onClick={() => dispatch(setConfigurationMainPage(1))}
+            className={`currentPositionPanel__page ${configurationMainPage === 1 ?'active':''}`}>макет</div>
+          <div
+            onClick={() => dispatch(setConfigurationMainPage(2))} 
+            className={`currentPositionPanel__page ${configurationMainPage === 2 ?'active':''}`}>расчет</div>
         </div>
         <div className="currentPositionPanel__right">
-          <button 
-            onClick={() => onSetPage()}
-            className="currentPositionPanel__btn btn"
-            >Далее</button>
+          {btnNext}
         </div>
       </div>
     </Nav>
