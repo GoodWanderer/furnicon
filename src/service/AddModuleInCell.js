@@ -177,40 +177,9 @@ const useAddModuleInCell = () => {
     }
   }
 
-  const addModuleInCellMedium = (item) => {
-    // console.log(11, currentModuleSelected.type);
-    if (currentModuleSelected.type === 'middle') {
-      let down = {
-        id: item.id,
-        img: item.img,
-        activeImg: item.activeImg,
-        indent: item.indent
-      }
-
-      dispatch(setCurrentModuleSelected(
-        {...currentModuleSelected, 
-          modeles: {...currentModuleSelected.modeles, down},
-        }
-      ))
-      dispatch(setModulesSelectedDown(
-        [...modulesSelectedDown.map((el) => {
-          if (el.id === currentModuleSelected.id)
-            return {...currentModuleSelected, 
-                      modeles: {...currentModuleSelected.modeles, down}
-                    }
-          else {
-            return el
-          }
-        })
-        ]
-      ))
-    }
-  }
-
   return {
     addModuleInCellUp,
     addModuleInCellDown,
-    addModuleInCellMedium
   }
 };
 

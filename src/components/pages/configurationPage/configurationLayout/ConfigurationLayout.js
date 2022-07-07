@@ -162,17 +162,6 @@ const ConfigurationLayout = () => {
 
   const { calcWidthPercent, calcWidthAll } = useCalc();
 
-  // const renderQuanityMessage = (q) => {
-  //   if (q === 1)
-  //     return '1 модуль';
-  //   else if (q > 1 && q < 5) 
-  //     return `${q} модулья`;
-  //   else
-  //     return `${q} модулей`;
-  // }
-
-  // const modulesQuanityMessage = useMemo(() => renderQuanityMessage(modulesQuanity), [modulesQuanity]);
-
   const sizeWidth = useMemo(() => calcWidthPercent(width), [width, configurationMainPage]);
 
   const allModulesWidth1 = calcWidthAll(modulesSelectedDown);

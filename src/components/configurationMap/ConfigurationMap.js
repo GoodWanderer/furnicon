@@ -3,7 +3,6 @@ import { setModulesSelectedUp, setModulesSelectedDown, setModulesSelectedUp2, se
 
 import WidthPlan from './../widthPlan/WidthPlan';
 import ListModulesSelected from './../listModules/listModulesSelected/ListModulesSelected';
-import ListModulesSelected2 from './../listModules/listModulesSelected2/ListModulesSelected2';
 import DragAndDropMiddle from './../dragAndDrop/dragAndDropMiddle/DragAndDropMiddle';
 
 const ConfigurationMap = ({ sizeWidth }) => {

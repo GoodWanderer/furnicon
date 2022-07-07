@@ -3,13 +3,7 @@ const useCalc = () => {
   const calcWidthPercent = (value) => {
 
     const conteinter = document.querySelector('._container');
-
-    // const widthPercent = value / 400 * 80 / (conteinter.offsetWidth) * 100
     const widthPercent = value / 400 * 90 / (conteinter.offsetWidth) * 100
-
-    // console.log(1, value / 5);
-    // console.log(2, value / 400 * 80);
-
     if ( widthPercent < 100 - 215/conteinter.offsetWidth * 100) {
       return widthPercent;
     }
