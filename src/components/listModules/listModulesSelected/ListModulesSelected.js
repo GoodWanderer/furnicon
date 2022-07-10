@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import DragAndDropModule from './../../dragAndDrop/dragAndDropModule/DragAndDropModule';
 import ListModulesAddItem from './../../listModulesItem/listModulesAddItem/ListModulesAddItem';
 import useModulesOperation from './../../../service/ModulesOperation';
-import useCalc from './../../../service/Calc';
+import useCalc from '../../../service/CalcWidth';
 
 const ListModulesSelected = ({arrUp, updateArrFunctionUp, arrDown, updateArrFunctionDown, arrMiddle, listNum}) => {
   const { width } = useSelector(state => state);

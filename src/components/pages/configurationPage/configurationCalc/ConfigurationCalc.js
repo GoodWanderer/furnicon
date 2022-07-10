@@ -11,6 +11,7 @@ import cherryPng from './cherry.png';
 
 import rectangle from './rectangle.png';
 
+import StyledButton from './../../../button/Button';
 import './configurationCalc.scss';
 
 const ConfigurationCalc = () => {
@@ -329,7 +330,7 @@ const ConfigurationCalc = () => {
                 <div className="configuration-calc-nav__name">Прямая кухня</div>
               </div>
               <div className="configuration-calc-nav__right">
-                <div className="configuration-calc-nav__btn btn">Произвести раскрой</div>
+                <StyledButton cutting>Произвести раскрой</StyledButton>
               </div>
             </div>
           </div>
@@ -381,7 +382,7 @@ const ConfigurationCalc = () => {
           </div>
           <div className="configuration-calc-btn">
             <div className="configuration-calc-btn__content _container">
-              <div className="configuration-calc-btn__btn btn">Произвести раскрой</div>
+              <StyledButton cutting>Произвести раскрой</StyledButton>
             </div>
           </div>
         </section>

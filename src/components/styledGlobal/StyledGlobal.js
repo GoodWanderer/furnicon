@@ -11,34 +11,20 @@ const theme = {
 		md4: 768,
 		md5: 360,
 	},
-	background: '#393E46',
+	background: {
+		grey: '#e8e8e8',
+		grayBlack: '#393e46',
+		blue: '#00adb5',
+		green: '#a8cd9b',
+	},
 }
 
-const Global = createGlobalStyle`
-	/* .btn { */
-		/* padding: 6px 12px; */
-		/* border-radius: 4px; */
-		/* background: #00adb5; */
+const Global = createGlobalStyle``
 
-		/* width: 69px;
-    height: 32px; */
-    /* font-family: 'Inter'; */
-    /* font-weight: 700; */
-    /* font-size: 14px; */
-    /* line-height: 14px; */
-    /* color: #fff; */
-    /* cursor: pointer; */
-	/* } */
-`
-
-const UI = createGlobalStyle`
-
-`
-
-const StyledGlobal = ({children}) => {
+const StyledGlobal = ({children}, ...props) => {
   return (
 		<ThemeProvider theme={theme}>
-			<Global/>
+			<Global {...props}/>
 			{children}
 		</ThemeProvider>
   );

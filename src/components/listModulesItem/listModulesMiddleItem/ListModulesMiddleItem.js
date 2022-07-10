@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useDrag, useDrop } from 'react-dnd';
 
-import useCalc from './../../../service/Calc';
+import useCalc from '../../../service/CalcWidth';
 import { setCurrentModuleSelectedListNum, setCurrentModuleSelected } from './../../../actions/index';
 
 const ListModulesMiddleItem = ({el, index, noMove, func, listNum, children}) => {

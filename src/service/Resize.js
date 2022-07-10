@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentModuleSelected, setModulesSelectedDown, setModulesSelectedDown2 } from './../actions/index';
 
-import useCalc from './Calc';
+import useCalc from './CalcWidth';
 
 const useResize = () => {
   const {currentModuleSelected, modulesSelectedDown2, modulesSelectedDown, width} = useSelector(state => state);

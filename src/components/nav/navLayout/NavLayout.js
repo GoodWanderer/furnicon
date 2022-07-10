@@ -1,36 +1,61 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setConfigurationMainPage } from '../../../actions';
 
-import Button from './../../button/buttonMode/Button';
-import Nav from '../Nav';
+import styled from 'styled-components';
 
-import './navLayout.scss';
+import StyledButton from '../../button/Button';
+import NavConfiguration from './../navConfiguration/NavConfiguration';
+import { StyledRow, StyledLeft } from './../navStart/NavStart';
+
+const StyledConfigurationPage = styled.div`
+  position: relative;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 64px;
+  text-transform: uppercase;
+  color: #8F97A3;
+  margin: 0 32px 0 0;
+  cursor: pointer;
+  &.active {
+    color: #393E46;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #212121;
+    }
+  }
+`
 
 const NavLayout = () => {
   const { configurationMainPage } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const btnNext = configurationMainPage !== 2? <Button 
-                                                  onClick={() => dispatch(setConfigurationMainPage(2))}
-                                                  className="currentPositionPanel__btn btn"
-                                                >Далее</Button> : null;
-  
+  const btnNext = configurationMainPage !== 2 ? 
+    <StyledButton onClick={() => dispatch(setConfigurationMainPage(2))} next>Далее</StyledButton> 
+    : 
+    null;
+
   return (
-    <Nav>
-      <div className="currentPositionPanel__row">
-        <div className="currentPositionPanel__left">
-          <div 
+    <NavConfiguration>
+      <StyledRow>
+        <StyledLeft>
+          <StyledConfigurationPage 
             onClick={() => dispatch(setConfigurationMainPage(1))}
-            className={`currentPositionPanel__page ${configurationMainPage === 1 ?'active':''}`}>макет</div>
-          <div
+            className={`${configurationMainPage === 1 ?'active':''}`}>макет</StyledConfigurationPage>
+          <StyledConfigurationPage
             onClick={() => dispatch(setConfigurationMainPage(2))} 
-            className={`currentPositionPanel__page ${configurationMainPage === 2 ?'active':''}`}>расчет</div>
-        </div>
-        <div className="currentPositionPanel__right">
+            className={`${configurationMainPage === 2 ?'active':''}`}>расчет</StyledConfigurationPage>
+        </StyledLeft>
+        <div>
           {btnNext}
         </div>
-      </div>
-    </Nav>
+      </StyledRow>
+    </NavConfiguration>
   );
 };
 

@@ -11,6 +11,7 @@ import ParametersModuleShelves from './parametersModuleShelves/ParametersModuleS
 import {closeSvg, selectSvg, onSvg} from './../../resources/img/parametersModule';
 
 import './parametersModule.scss';
+import ParametersModuleTechnic from './ParametersModuleTechnic/ParametersModuleTechnic';
 
 const ParametersModule = () => {
   const { currentModuleSelected } = useSelector(state => state);
@@ -300,34 +301,34 @@ const ParametersModuleView = () => {
                                     onSetShelves={onSetShelves} 
                                     onSetRemovableShelves={onSetRemovableShelves}/>:null;
 
-  // const renderTechnic = () => {
-  //   if (wall === 1) {
-  //     return <ParametersModuleTechnic
-  //       arrMiddle={modulesSelectedMiddle}
-  //       updateArrFunctionMiddle={setModulesSelectedMiddle}
-  //       arrDown={modulesSelectedDown}
-  //       updateArrFunctionDown={setModulesSelectedDown}
-  //       parametersModuleShelves={parametersModuleShelves}
-  //       onSetMaterialActive={onSetMaterialActive}
-  //       onSetModuleTest={onSetModuleTest} materialActive={materialActive}
-  //       setMaterialActive={setMaterialActive}
-  //     />
-  //   } else {
-  //     return <ParametersModuleTechnic
-  //       arrMiddle={modulesSelectedMiddle2}
-  //       updateArrFunctionMiddle={setModulesSelectedMiddle2}
-  //       arrDown={modulesSelectedDown2}
-  //       updateArrFunctionDown={setModulesSelectedDown2}
-  //       parametersModuleShelves={parametersModuleShelves}
-  //       onSetMaterialActive={onSetMaterialActive}
-  //       onSetModuleTest={onSetModuleTest} materialActive={materialActive}
-  //       setMaterialActive={setMaterialActive}
-  //     />
-  //   }
-  // }
+  const renderTechnic = () => {
+    if (wall === 1) {
+      return <ParametersModuleTechnic
+        arrMiddle={modulesSelectedMiddle}
+        updateArrFunctionMiddle={setModulesSelectedMiddle}
+        arrDown={modulesSelectedDown}
+        updateArrFunctionDown={setModulesSelectedDown}
+        parametersModuleShelves={parametersModuleShelves}
+        onSetMaterialActive={onSetMaterialActive}
+        onSetModuleTest={onSetModuleTest} materialActive={materialActive}
+        setMaterialActive={setMaterialActive}
+      />
+    } else {
+      return <ParametersModuleTechnic
+        arrMiddle={modulesSelectedMiddle2}
+        updateArrFunctionMiddle={setModulesSelectedMiddle2}
+        arrDown={modulesSelectedDown2}
+        updateArrFunctionDown={setModulesSelectedDown2}
+        parametersModuleShelves={parametersModuleShelves}
+        onSetMaterialActive={onSetMaterialActive}
+        onSetModuleTest={onSetModuleTest} materialActive={materialActive}
+        setMaterialActive={setMaterialActive}
+      />
+    }
+  }
 
-  // const technicView = renderTechnic();
-  const technicView = null;
+  const technicView = renderTechnic();
+  // const technicView = null;
 
   return (
     <div className="parameters-Module">

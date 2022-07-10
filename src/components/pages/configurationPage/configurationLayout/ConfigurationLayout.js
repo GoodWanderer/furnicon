@@ -3,8 +3,8 @@ import { useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentModuleSelected, setResizeActiveModuleWidth, setModulesSelectedDown, setModulesSelectedDown2, setModulesCommon } from './../../../../actions/index';
 
-import useCalc from './../../../../service/Calc';
-import ButtonMode from './../../../button/buttonMode/ButtonMode';
+import useCalc from '../../../../service/CalcWidth';
+import ConfigurationParametrs from './../../../configurationParametrs/ConfigurationParametrs';
 import ParametersModule from './../../../parametersModule/ParametersModule';
 import ConfigurationMap from './../../../configurationMap/ConfigurationMap';
 
@@ -265,7 +265,7 @@ const ConfigurationLayout = () => {
     <>
       <main>
         <section className="configuration-layout" style={{position: 'relative'}}>
-          <ButtonMode />
+          <ConfigurationParametrs />
           <ParametersModule />
           <div
             // onMouseUp={(e) => onSetResizeWidthEnd(e)} 

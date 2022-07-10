@@ -4,7 +4,7 @@ import { useDrag, useDrop } from 'react-dnd';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentModuleSelected } from '../../../actions';
 
-import useCalc from './../../../service/Calc';
+import useCalc from '../../../service/CalcWidth';
 
 import ListModulesPartResize from './../../listModulesPart/listModulesPartResize/ListModulesPartResize';
 import { setCurrentModuleSelectedListNum } from './../../../actions/index';

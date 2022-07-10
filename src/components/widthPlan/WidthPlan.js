@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import useCalc from './../../service/Calc';
+import useCalc from '../../service/CalcWidth';
 
 import { arrow } from '../../resources/img/configurationLayout';
 
