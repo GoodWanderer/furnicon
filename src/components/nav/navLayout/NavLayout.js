@@ -1,6 +1,7 @@
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setConfigurationMainPage } from '../../../actions';
 
+import Button from './../../button/buttonMode/Button';
 import Nav from '../Nav';
 
 import './navLayout.scss';
@@ -9,10 +10,10 @@ const NavLayout = () => {
   const { configurationMainPage } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const btnNext = configurationMainPage !== 2? <button 
+  const btnNext = configurationMainPage !== 2? <Button 
                                                   onClick={() => dispatch(setConfigurationMainPage(2))}
                                                   className="currentPositionPanel__btn btn"
-                                                >Далее</button> : null;
+                                                >Далее</Button> : null;
   
   return (
     <Nav>
