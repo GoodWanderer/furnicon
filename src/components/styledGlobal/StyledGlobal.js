@@ -1,4 +1,4 @@
-import { createGlobalStyle, ThemeProvider } from 'style-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const GlobalStyleVar = {
 	fontFamily: 'Inter',
@@ -14,8 +14,8 @@ const GlobalStyleVar = {
 const Global = createGlobalStyle`
 	.btn {
 		padding: 6px 12px;
-		background: green;
 		border-radius: 4px;
+		background: green;
 	}
 `
 

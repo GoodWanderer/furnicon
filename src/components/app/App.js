@@ -7,12 +7,11 @@ import ConfigurationPage from './../pages/configurationPage/ConfigurationPage';
 const App = () => {
   return (
     <Router>
-      <StyledGlobal>
-        <Header />
-        <Routes>
-          <Route path="/KworkFurnicom-1/" element={<ConfigurationPage />} />
-        </Routes>
-      </StyledGlobal>
+      <StyledGlobal/>
+      <Header />
+      <Routes>
+        <Route path="/KworkFurnicom-1/" element={<ConfigurationPage />} />
+      </Routes>
     </Router>
       
   );
