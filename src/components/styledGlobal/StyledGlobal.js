@@ -1,0 +1,30 @@
+import { createGlobalStyle, ThemeProvider } from 'style-components';
+
+const GlobalStyleVar = {
+	fontFamily: 'Inter',
+	minWidth: '320px',
+	maxWidthContainer: '1264px',
+	md1: 1670,
+	md2: 1438,
+	md3: 1024,
+	md4: 768,
+	md5: 360,
+}
+
+const Global = createGlobalStyle`
+	.btn {
+		padding: 6px 12px;
+		background: green;
+		border-radius: 4px;
+	}
+`
+
+const StyledGlobal = () => {
+  return (
+		<ThemeProvider globalStyleVar={GlobalStyleVar}>
+			<Global/>
+		</ThemeProvider>
+  );
+}
+
+export default StyledGlobal;
