@@ -261,17 +261,12 @@ const ConfigurationLayout = () => {
   //   }
   // }
 
-  const parametersModule = currentModuleSelected?.modeles?.down?.id || 
-                           currentModuleSelected?.modeles?.up1?.id || 
-                           currentModuleSelected?.modeles?.up3?.id ?
-                           <ParametersModule />:null;
-
   return (
     <>
       <main>
         <section className="configuration-layout" style={{position: 'relative'}}>
           <ButtonMode />
-          {parametersModule}
+          <ParametersModule />
           <div
             // onMouseUp={(e) => onSetResizeWidthEnd(e)} 
             // onMouseMove={(e) => onResizeWidth(e, sizeWidth)}  

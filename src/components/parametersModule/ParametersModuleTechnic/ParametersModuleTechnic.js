@@ -1,12 +1,11 @@
 import { useSelector } from 'react-redux';
 
-import useModulesOperation from './../../../service/ModulesOperation';
+import useModulesOperation from '../../../service/ModulesOperation';
 
-import {selectSvg} from './../../../resources/img/parametersModule'
+import {selectSvg} from '../../../resources/img/parametersModule'
 
 const ParametersModuleTechnic = ({arrMiddle, updateArrFunctionMiddle, arrDown, updateArrFunctionDown, parametersModuleShelves, onSetMaterialActive, onSetModuleTest, materialActive, setMaterialActive}) => {
   const { currentModuleSelected } = useSelector(state => state);
-
   const {onChangeTypeDownToMiddle} = useModulesOperation({arrMiddle, updateArrFunctionMiddle, arrDown, updateArrFunctionDown});
 
   const typeRender = () => {
