@@ -5,7 +5,7 @@ import { setCurrentModuleSelected, setResizeActiveModuleWidth, setModulesSelecte
 
 import useCalc from '../../../../service/CalcWidth';
 import ConfigurationParametrs from './../../../configurationParametrs/ConfigurationParametrs';
-import ParametersModule from './../../../parametersModule/ParametersModule';
+import ModuleParameters from './../../../moduleParameters/ModuleParameters';
 import ConfigurationMap from './../../../configurationMap/ConfigurationMap';
 
 import './configurationLayout.scss';
@@ -266,7 +266,7 @@ const ConfigurationLayout = () => {
       <main>
         <section className="configuration-layout" style={{position: 'relative'}}>
           <ConfigurationParametrs />
-          <ParametersModule />
+          <ModuleParameters />
           <div
             // onMouseUp={(e) => onSetResizeWidthEnd(e)} 
             // onMouseMove={(e) => onResizeWidth(e, sizeWidth)}  

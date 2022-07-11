@@ -7,8 +7,8 @@ const ConfigurationСhoice = () => {
   const { configuration } = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const onSetConfiguration = (num) => {
-    dispatch(setConfiguration(num))
+  const onSetConfiguration = (value) => {
+    dispatch(setConfiguration(value))
   } 
     
   return (
@@ -16,37 +16,37 @@ const ConfigurationСhoice = () => {
       <h1 className="configuration-start__title">Выберите конфигурацию</h1>
       <div className="configuration-start__list">
         <div 
-          onClick={() => onSetConfiguration(1)}
-          className={`configuration-start__item ${configuration===1?'active':''}`}>
+          onClick={() => onSetConfiguration('Прямая')}
+          className={`configuration-start__item ${configuration==='Прямая'?'active':''}`}>
           <div className="configuration-start__img">
-            <img src={configuration===1?img01Active:img01} alt="img01" />
+            <img src={configuration==='Прямая'?img01Active:img01} alt="img01" />
           </div>
           <p className="configuration-start__name">Прямая</p>
         </div>
         <div 
-          onClick={() => onSetConfiguration(2)}
-          className={`configuration-start__item ${configuration===2?'active':''}`}
+          onClick={() => onSetConfiguration('Паралельная')}
+          className={`configuration-start__item ${configuration==='Паралельная'?'active':''}`}
           >
           <div className="configuration-start__img">
-            <img src={configuration===2?img02Active:img02} alt="img02" />
+            <img src={configuration==='Паралельная'?img02Active:img02} alt="img02" />
           </div>
           <p className="configuration-start__name">Паралельная</p>
         </div>
         <div 
-          onClick={() => onSetConfiguration(3)}
-          className={`configuration-start__item ${configuration===3?'active':''}`}
+          onClick={() => onSetConfiguration('Угловая')}
+          className={`configuration-start__item ${configuration==='Угловая'?'active':''}`}
           >
           <div className="configuration-start__img">
-            <img src={configuration===3?img03Active:img03} alt="img03" />
+            <img src={configuration==='Угловая'?img03Active:img03} alt="img03" />
           </div>
           <p className="configuration-start__name">Угловая</p>
         </div>
         <div 
-          onClick={() => onSetConfiguration(4)}
-          className={`configuration-start__item ${configuration===4?'active':''}`}
+          onClick={() => onSetConfiguration('Островок')}
+          className={`configuration-start__item ${configuration==='Островок'?'active':''}`}
           >
           <div className="configuration-start__img configuration-start-center_img">
-            <img src={configuration===4?img01Active:img01} alt="img04" />
+            <img src={configuration==='Островок'?img01Active:img01} alt="img04" />
           </div>
           <p className="configuration-start__name">Островок</p>
         </div>

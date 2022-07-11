@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentModuleSelected, setModulesSelectedDown, setModulesSelectedDown2, setModulesSelectedMiddle, setModulesSelectedMiddle2 } from './../../actions/index';
+import { setCurrentModuleSelected, setModulesSelectedDown, setModulesSelectedDown2, setModulesSelectedMiddle, setModulesSelectedMiddle2 } from '../../actions/index';
 
-import useResize from './../../service/Resize';
+import useResize from '../../service/Resize';
 
-// import ParametersModuleTechnic from './parametersModuleTechnic/ParametersModuleTechnic';
-import ParametersModuleShelves from './parametersModuleShelves/ParametersModuleShelves';
+import ModuleParametersTechnic from './moduleParametersTechnic/ModuleParametersTechnic';
+import ModuleParametersShelves from './moduleParametersShelves/ModuleParametersShelves';
 
-import {closeSvg, selectSvg, onSvg} from './../../resources/img/parametersModule';
+import { closeSvg, selectSvg, onSvg } from '../../resources/img/moduleParameters';
+
 
 import './parametersModule.scss';
-import ParametersModuleTechnic from './ParametersModuleTechnic/ParametersModuleTechnic';
 
-const ParametersModule = () => {
+const ModuleParameters = () => {
   const { currentModuleSelected } = useSelector(state => state);
 
-  const parametersModuleView = currentModuleSelected ? <ParametersModuleView /> : null;
+  const parametersModuleView = currentModuleSelected ? <ModuleParametersView /> : null;
 
   return (
     <>
@@ -25,7 +25,7 @@ const ParametersModule = () => {
   );
 };
 
-const ParametersModuleView = () => {
+const ModuleParametersView = () => {
   const {currentModuleSelected, modulesSelectedDown, modulesSelectedDown2, modulesSelectedMiddle, modulesSelectedMiddle2, modulesCommon, wall} = useSelector(state => state);
   const dispatch = useDispatch();
 
@@ -295,7 +295,7 @@ const ParametersModuleView = () => {
   }
 
   const parametersModuleShelves = currentModuleSelected?.modeles?.down?.id !== 7 && currentModuleSelected?.modeles?.down?.id !== 8 ?
-                                  <ParametersModuleShelves 
+                                  <ModuleParametersShelves 
                                     shelves={shelves} 
                                     removableShelves={removableShelves}
                                     onSetShelves={onSetShelves} 
@@ -303,7 +303,7 @@ const ParametersModuleView = () => {
 
   const renderTechnic = () => {
     if (wall === 1) {
-      return <ParametersModuleTechnic
+      return <ModuleParametersTechnic
         arrMiddle={modulesSelectedMiddle}
         updateArrFunctionMiddle={setModulesSelectedMiddle}
         arrDown={modulesSelectedDown}
@@ -314,7 +314,7 @@ const ParametersModuleView = () => {
         setMaterialActive={setMaterialActive}
       />
     } else {
-      return <ParametersModuleTechnic
+      return <ModuleParametersTechnic
         arrMiddle={modulesSelectedMiddle2}
         updateArrFunctionMiddle={setModulesSelectedMiddle2}
         arrDown={modulesSelectedDown2}
@@ -328,7 +328,6 @@ const ParametersModuleView = () => {
   }
 
   const technicView = renderTechnic();
-  // const technicView = null;
 
   return (
     <div className="parameters-Module">
@@ -511,36 +510,4 @@ const ParametersModuleView = () => {
   );
 }
 
-// const ParametersModuleShelves = ({shelves, removableShelves, onSetShelves, onSetRemovableShelves}) => {
-//   return (
-//     <>
-//     {/* <div className="parameters-Module-body__block"> */}
-//       <div className="parameters-Module-body__row m-16">
-//         <div className="parameters-Module-body__name">Количество полок</div>
-//         <div
-//           style={{margin: '8px 0 0'}} 
-//           className="parameters-Module-body__num">
-//           <input 
-//             value={shelves}
-//             onChange={(e) => onSetShelves(e.target.value)}
-//             min="0"
-//             max="5"
-//             type="number"
-//             className="parameters-Module-body__num-input" />
-//           <span className="parameters-Module-body__num-text">шт.</span>
-//         </div>
-//       </div>
-//       <div className="parameters-Module-body__checkbox">
-//         <div 
-//           onClick={() => onSetRemovableShelves()}
-//           className={`parameters-Module-body__checkbox-box ${removableShelves?'active':''}`}>
-//           <img src={onSvg} alt="Да" />
-//         </div>
-//         <div className="parameters-Module-body__checkbox-name">Съемная полка</div>
-//       </div>
-//     {/* </div> */}
-//     </>
-//   )
-// }
-
-export default ParametersModule;
+export default ModuleParameters;

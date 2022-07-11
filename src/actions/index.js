@@ -1,7 +1,7 @@
-export const setConfigurationPage = (pageNum) => {
+export const setConfigurationPage = (value) => {
   return {
     type: 'SET_CONFIGURATION_PAGE',
-    payload: pageNum
+    payload: value
   }
 }
 export const setConfigurationMainPage = (pageNum) => {
@@ -113,42 +113,13 @@ export const setCurrentModuleSelected = (item) => {
     payload: item
   }
 }
-export const setCurrentModuleSelectedListNum = (value) => {
-  return {
-    type: 'SET_CURRENT_MODULE_SELECTED_LIST_NUM',
-    payload: value
-  }
-}
-export const setModulesQuanity = (num) => {
-  return {
-    type: 'SET_MODULES_QUANITY',
-    payload: num
-  }
-}
 
-export const setFilterType = (filter) => {
-  return {
-    type: 'SET_FILTER_TYPE',
-    payload: filter
-  }
-}
 export const setFilterALL = () => {
   return {
     type: 'SET_FILTER_ALL'
   }
 }
-export const setFilterFeaturesWidth = (filter) => {
-  return {
-    type: 'SET_FILTER_FEATURES_WIDTH',
-    payload: filter
-  }
-}
-export const setFilterFeaturesAppointment = (filter) => {
-  return {
-    type: 'SET_FILTER_FEATURES_APPOINTMENT',
-    payload: filter
-  }
-}
+
 export const setFilterFeaturesAll = () => {
   return {
     type: 'SET_FILTER_FEATURES_ALL'
@@ -158,6 +129,31 @@ export const setWall = (num) => {
   return {
     type: 'SET_WALL',
     payload: num
+  }
+}
+
+export const setConfigurationSettings = (value) => {
+  return {
+    type: 'SET_CONFIGURATION_SETTINGS',
+    payload: value
+  }
+}
+export const setMaterialHousing = (value) => {
+  return {
+    type: 'SET_MATERIAL_HOUSING',
+    payload: value
+  }
+}
+export const setMaterialRearWall = (value) => {
+  return {
+    type: 'SET_MATERIAL_REAR_WALL',
+    payload: value
+  }
+}
+export const setMaterialFacade = (value) => {
+  return {
+    type: 'SET_MATERIAL_FACADE',
+    payload: value
   }
 }
 

@@ -1,6 +1,6 @@
-import {onSvg} from './../../../resources/img/parametersModule'
+import {onSvg} from '../../../resources/img/moduleParameters'
 
-const ParametersModuleShelves = ({shelves, removableShelves, onSetShelves, onSetRemovableShelves}) => {
+const ModuleParametersShelves = ({shelves, removableShelves, onSetShelves, onSetRemovableShelves}) => {
   
   return (
     <>
@@ -31,4 +31,4 @@ const ParametersModuleShelves = ({shelves, removableShelves, onSetShelves, onSet
   )
 };
 
-export default ParametersModuleShelves;
+export default ModuleParametersShelves;

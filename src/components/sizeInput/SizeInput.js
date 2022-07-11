@@ -14,7 +14,7 @@ const SizeInput = () => {
       dispatch(setSizeError(false));
   }
 
-  const lengthWallB = configuration===3?<LengthWallB lengthB={lengthB} onChangeState={onChangeState} sizeError={sizeError}/>:null;
+  const lengthWallB = configuration==='Угловая'?<LengthWallB lengthB={lengthB} onChangeState={onChangeState} sizeError={sizeError}/>:null;
 
   return (
     <>
@@ -35,7 +35,7 @@ const SizeInput = () => {
           <input 
             type="number"
             required
-            placeholder={configuration===3?`Длина стены "A" в мм`:'Длина в мм'}
+            placeholder={configuration==='Угловая'?`Длина стены "A" в мм`:'Длина в мм'}
             value={length} 
             onChange={e => onChangeState(setLength, e.target.value)}
             />

@@ -1,4 +1,6 @@
-import styled, {css} from 'styled-components';
+import { useSelector } from 'react-redux';
+
+import styled, { css } from 'styled-components';
 
 import { arrowRigth, equalSvg } from '../../../resources/img/header';
 
@@ -43,6 +45,21 @@ const StyledItem = styled.li`
 `
 
 const Navlocation = () => {
+  const {configurationPage, configuration} = useSelector(state => state);
+
+  const renderLocation = () => {
+    if (configurationPage !== 1) 
+      return (
+        <StyledItem>
+          <img src={arrowRigth} alt="Подстраница" />
+          <span>{configuration}</span>
+        </StyledItem>
+      )
+    return null;
+  }
+
+  const configurationPagePath = renderLocation();
+
   return (
     <StyledNavLocation>
       <StyledRow>
@@ -50,10 +67,7 @@ const Navlocation = () => {
             <img src={equalSvg} alt="Страница" />
             <span>Проект</span>
         </StyledItem>
-        <StyledItem>
-            <img src={arrowRigth} alt="Подстраница" />
-            <span>Прямая</span>
-        </StyledItem>
+        {configurationPagePath}
       </StyledRow>
     </StyledNavLocation>
   );

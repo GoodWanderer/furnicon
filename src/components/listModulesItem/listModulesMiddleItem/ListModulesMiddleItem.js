@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useDrag, useDrop } from 'react-dnd';
 
 import useCalc from '../../../service/CalcWidth';
-import { setCurrentModuleSelectedListNum, setCurrentModuleSelected } from './../../../actions/index';
+import { setCurrentModuleSelected } from './../../../actions/index';
 
 const ListModulesMiddleItem = ({el, index, noMove, func, listNum, children}) => {
   const { currentModuleSelected, height } = useSelector(state => state);
@@ -60,7 +60,6 @@ const ListModulesMiddleItem = ({el, index, noMove, func, listNum, children}) => 
   const calcWidth = calcWidthPercentItem(el.width);
 
   const onClickItem = (el) => {
-    // dispatch(setCurrentModuleSelectedListNum(listNum));
     dispatch(setCurrentModuleSelected(el));
   } 
 

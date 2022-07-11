@@ -43,8 +43,8 @@ const ConfigurationMap = ({ sizeWidth }) => {
 
   const renderMap = () => {
     switch (configuration) {
-      case 1:
-      case 4:
+      case 'Прямая':
+      case 'Островок':
         return (
           <>
             <div style={{height: '50px'}}></div>
@@ -65,8 +65,8 @@ const ConfigurationMap = ({ sizeWidth }) => {
             <div style={{height: '35px'}}></div>
           </>
         )
-      case 2:
-      case 3:
+      case 'Паралельная':
+      case 'Угловая':
         return (
           <>
             <div style={{height: '50px'}}></div>

@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentModuleSelected, setWall } from './../../../actions/index';
 
+import { StyledLayoutChoiseTitle, StyledLayoutChoiseList, StyledLayoutChoiseItem, StyledLayoutChoiseImg, StyledLayoutChoiseName, StyledLayoutChoiseListItem } from './../ConfigurationParametrs';
+
 import { img08 } from './../../../resources/img/configurationLayout';
 
 const ConfigurationParametrsWalls = () => {
@@ -15,33 +17,34 @@ const ConfigurationParametrsWalls = () => {
 
   const wallRender = () => {
     return (
-      <li 
+      <StyledLayoutChoiseListItem
+        cursor={'pointer'}
+        opacity={wall===2?1:false}
         onClick={() => dispatch(setWall(2))}
-        className={`configuration-layout-choise__list-item ${wall===2?'active':''}`}
         >
-        <div className="configuration-layout-choise__img"><img src={img08} alt="img2" /></div>
-        <p className="configuration-layout-choise__name">B</p>
-      </li>
+        <StyledLayoutChoiseImg><img src={img08} alt="img2" /></StyledLayoutChoiseImg>
+        <StyledLayoutChoiseName>B</StyledLayoutChoiseName>
+      </StyledLayoutChoiseListItem>
     )
   }
 
-  const wallView = configuration === 2 || configuration === 3 ? wallRender() : null;
+  const wallView = configuration === 'Паралельная' || configuration === 'Угловая' ? wallRender() : null;
 
   return (
-    <div className="configuration-layout-choise__item">
-      <h3 className="configuration-layout-choise__title">Стена</h3>
-      <ul className={`configuration-layout-choise__list active`}>
-        <li 
+    <StyledLayoutChoiseItem>
+      <StyledLayoutChoiseTitle>Стена</StyledLayoutChoiseTitle>
+      <StyledLayoutChoiseList className="active">
+        <StyledLayoutChoiseListItem 
+          cursor={configuration==='Паралельная'||configuration==='Угловая'?'pointer':'default'}
+          opacity={wall===1?1:false}
           onClick={() => dispatch(setWall(1))}
-          style={{cursor: configuration === 2 || configuration === 3 ? 'pointer' : 'default'}}
-          className={`configuration-layout-choise__list-item ${wall===1?'active':''}`}
           >
-          <div className="configuration-layout-choise__img"><img src={img08} alt="img1" /></div>
-          <p className="configuration-layout-choise__name">A</p>
-        </li>
+          <StyledLayoutChoiseImg><img src={img08} alt="img1" /></StyledLayoutChoiseImg>
+          <StyledLayoutChoiseName>A</StyledLayoutChoiseName>
+        </StyledLayoutChoiseListItem>
         {wallView}
-      </ul>
-    </div>
+      </StyledLayoutChoiseList>
+    </StyledLayoutChoiseItem>
   )
 } 
 

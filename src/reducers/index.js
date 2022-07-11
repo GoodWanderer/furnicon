@@ -2,36 +2,31 @@ const initialState = {
   configurationPage: 1,
   configurationMainPage: 1,
 
-  configuration: 1,
+  configuration: 'Прямая',
   length: '',
   width: '',
   depth: '',
   height: '',
-
   apron: '',
   lengthB: '',
-
   sizeError: false,
 
   modulesCommon: [],
-  
   modulesSelectedUp: [],
   modulesSelectedMiddle: [{id: 1, content: 'body', type: 'middle'}],
   modulesSelectedDown: [],
-  
   modulesSelectedUp2: [],
   modulesSelectedMiddle2: [{id: 2, content: 'body', type: 'middle'}],
   modulesSelectedDown2: [],
-  
   currentModuleSelected: false,
-  currentModuleSelectedListNum: 0,
-  
-  modulesQuanity: 0,
 
-  filterType: false,
-  filterFeaturesWidth: false,
-  filterFeaturesAppointment: false,
   wall: 1, 
+
+  configurationSettings: false,   
+  materials: ['Eichesil', 'Cherry'],
+  materialHousing: false,
+  materialRearWall: false,
+  materialFacade: false,
 
   resizeActiveModuleWidth: false
 }
@@ -53,15 +48,12 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           configurationPage: 1,
-          configuration: 1,
+          configuration: 'Прямая',
           length: '',
           width: '',
           depth: '',
           height: '',
           sizeError: false,
-          filterType: false,
-          filterFeaturesWidth: false,
-          filterFeaturesAppointment: false,
         }
 
       case 'SET_CONFIGURATION':
@@ -145,49 +137,33 @@ const reducer = (state = initialState, action) => {
           ...state,
           currentModuleSelected: payload,
         }
-      case 'SET_CURRENT_MODULE_SELECTED_LIST_NUM':
-        return {
-          ...state,
-          currentModuleSelectedListNum: payload,
-        }
-      case 'SET_MODULES_QUANITY':
-        return {
-          ...state,
-          modulesQuanity: payload,
-        }
 
-      case 'SET_FILTER_TYPE':
-        return {
-          ...state,
-          filterType: payload,
-        }
-      case 'SET_FILTER_ALL':
-        return {
-          ...state,
-          filterType: false
-        }
-      case 'SET_FILTER_FEATURES_WIDTH':
-        return {
-          ...state,
-          filterFeaturesWidth: payload,
-        }
-      case 'SET_FILTER_FEATURES_APPOINTMENT':
-        return {
-          ...state,
-          filterFeaturesAppointment: payload,
-        }
-      case 'SET_FILTER_FEATURES_ALL':
-        return {
-          ...state,
-          filterFeaturesWidth: false,
-          filterFeaturesAppointment: false
-        }
       case 'SET_WALL':
         return {
           ...state,
           wall: payload,
         }
-
+        
+      case 'SET_CONFIGURATION_SETTINGS':
+        return {
+          ...state,
+          configurationSettings: payload,
+        }
+      case 'SET_MATERIAL_HOUSING':
+        return {
+          ...state,
+          materialHousing: payload,
+        }
+      case 'SET_MATERIAL_REAR_WALL':
+        return {
+          ...state,
+          materialRearWall: payload,
+        }
+      case 'SET_MATERIAL_FACADE':
+        return {
+          ...state,
+          materialFacade: payload,
+        }
       case 'SET_RESIZE_ACTIVE_MODULE_WIDTH':
         return {
           ...state,

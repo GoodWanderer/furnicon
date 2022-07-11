@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentModuleSelected, setModulesSelectedUp, setModulesSelectedUp2 } from './../../../actions/index';
 
+import { StyledLayoutChoiseItem, StyledLayoutChoiseTitle, StyledLayoutChoiseList, StyledLayoutChoiseListItem, StyledLayoutChoiseName, StyledLayoutChoiseImg } from './../ConfigurationParametrs';
+
 import { img07, img08 } from '../../../resources/img/configurationLayout';
 
 const ConfigurationParametrsMezzanine = () => {
@@ -44,24 +46,24 @@ const ConfigurationParametrsMezzanine = () => {
   } 
 
   return (
-    <div className="configuration-layout-choise__item">
-      <h3 className="configuration-layout-choise__title">Антресоль</h3>
-      <ul className={`configuration-layout-choise__list ${currentModuleSelected?.modeles?.up3?'active':''}`}>
-        <li 
+    <div>
+      <StyledLayoutChoiseTitle>Антресоль</StyledLayoutChoiseTitle>
+      <StyledLayoutChoiseList className={`${currentModuleSelected?.modeles?.up3?'active':''}`}>
+        <StyledLayoutChoiseListItem 
+          opacity={currentModuleSelected?.mounted==='x1' ? 1 : false}
           onClick={() => onSetMounted('x1')}
-          className={`configuration-layout-choise__list-item ${currentModuleSelected?.mounted==='x1'?'active':''}`}
           >
-          <div className="configuration-layout-choise__img"><img src={img07} alt="img2" /></div>
-          <p className="configuration-layout-choise__name">Да</p>
-        </li>
-        <li 
+          <StyledLayoutChoiseImg><img src={img07} alt="img2" /></StyledLayoutChoiseImg>
+          <StyledLayoutChoiseName>Да</StyledLayoutChoiseName>
+        </StyledLayoutChoiseListItem>
+        <StyledLayoutChoiseListItem
           onClick={() => onSetMounted('x0')}
-          className={`configuration-layout-choise__list-item ${currentModuleSelected?.mounted==='x0'?'active':''}`}
+          opacity={currentModuleSelected?.mounted==='x0' ? 1 : false}
           >
-          <div className="configuration-layout-choise__img"><img src={img08} alt="img2" /></div>
-          <p className="configuration-layout-choise__name">Нет</p>
-        </li>
-      </ul>
+          <StyledLayoutChoiseImg><img src={img08} alt="img2" /></StyledLayoutChoiseImg>
+          <StyledLayoutChoiseName>Нет</StyledLayoutChoiseName>
+        </StyledLayoutChoiseListItem>
+      </StyledLayoutChoiseList>
     </div>
   )
 }

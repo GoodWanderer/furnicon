@@ -12,7 +12,7 @@ const ConfigurationStart = () => {
   const dispatch = useDispatch();
 
   const onSetPage = () => {
-    if (!(length > 0) || !(width > 0) || !(depth > 0) || !(height > 0) || !(apron > 0) || (!(lengthB > 0) && configuration === 3))
+    if (!(length > 0) || !(width > 0) || !(depth > 0) || !(height > 0) || !(apron > 0) || (!(lengthB > 0) && configuration === 'Угловая'))
       dispatch(setSizeError(true));
     else                
       dispatch(setConfigurationPage(2))

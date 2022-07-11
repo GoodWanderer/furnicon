@@ -7,7 +7,6 @@ import { setCurrentModuleSelected } from '../../../actions';
 import useCalc from '../../../service/CalcWidth';
 
 import ListModulesPartResize from './../../listModulesPart/listModulesPartResize/ListModulesPartResize';
-import { setCurrentModuleSelectedListNum } from './../../../actions/index';
 
 
 const ListModulesSelectedItem = ({el, index, cName, moveModulesSelected, view, wall, children}) => {
@@ -50,7 +49,6 @@ const ListModulesSelectedItem = ({el, index, cName, moveModulesSelected, view, w
   const calcWidth = calcWidthPercentItem(el.width);
 
   const onClickItem = (el) => {
-    // dispatch(setCurrentModuleSelectedListNum(listNum));
     dispatch(setCurrentModuleSelected(el));
   } 
 
